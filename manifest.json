@@ -1,0 +1,26 @@
+{
+  "name": "Svelte Chrome Extension",
+  "description": "Np Extension using Svelte",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "src/popup/popup.html"
+  },
+  "background": {
+    "service_worker": "src/background/index.ts"
+  },
+  "chrome_url_overrides": {
+    "newtab": "src/new-tab/new-tab.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["src/content/index.ts"]
+    }
+  ],
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": false
+  },
+  "permissions": ["storage"]
+}
