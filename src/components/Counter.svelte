@@ -28,7 +28,7 @@
   </div>
 </div>
 
-<style scoped>
+<style>
   button {
     color: theme('colors.blue.700');
     padding: theme('spacing.2') theme('spacing.4');
