@@ -14,7 +14,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
+      "matches": ["<all_urls>"],
       "js": ["src/content/index.ts"]
     }
   ],
@@ -22,5 +22,6 @@
     "page": "src/options/options.html",
     "open_in_tab": false
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "declarativeNetRequest", "declarativeNetRequestFeedback"],
+  "host_permissions": ["<all_urls>"]
 }
