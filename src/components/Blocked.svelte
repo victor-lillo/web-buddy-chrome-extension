@@ -10,7 +10,10 @@
   </p>
 </section>
 
-<style scoped>
+<style>
+  :global(body) {
+    background-color: lightgoldenrodyellow;
+  }
   section {
     display: flex;
     flex-direction: column;
