@@ -1,19 +1,16 @@
 <script lang="ts">
-  export let count: number
+  export let time: number
   let message: string = null
 </script>
 
 <section>
   <h1>Don't give up, you're doing great</h1>
   <p>
-    Current time blocking garbage: <span>{count}</span>
+    Current time blocking garbage: <span>{time}</span>
   </p>
 </section>
 
 <style>
-  :global(body) {
-    background-color: lightgoldenrodyellow;
-  }
   section {
     display: flex;
     flex-direction: column;
@@ -21,7 +18,7 @@
   }
   h1 {
     font-size: 2rem;
-    color: crimson;
+    color: blue;
   }
   span {
     font-weight: 600;

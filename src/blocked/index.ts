@@ -1,12 +1,13 @@
-import '../app.css'
+import '../styles/app.css'
 import Blocked from '../components/Blocked.svelte'
 
 const target = document.getElementById('app')
 
+const time = 12
 async function render() {
-  const { count } = await chrome.storage.sync.get({ count: 0 })
+  // const { time } = await chrome.storage.sync.get({ time: 0 })
 
-  new Blocked({ target, props: { count } })
+  new Blocked({ target, props: { time } })
 }
 
 document.addEventListener('DOMContentLoaded', render)

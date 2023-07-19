@@ -1,4 +1,4 @@
-import '../app.css'
+import '../styles/app.css'
 import Counter from '../components/Counter.svelte'
 
 const target = document.getElementById('app')
