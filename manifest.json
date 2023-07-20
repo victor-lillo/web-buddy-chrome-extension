@@ -9,9 +9,6 @@
   "background": {
     "service_worker": "src/background/index.ts"
   },
-  "chrome_url_overrides": {
-    "newtab": "src/new-tab/new-tab.html"
-  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
