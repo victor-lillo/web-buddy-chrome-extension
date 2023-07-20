@@ -1,3 +1,5 @@
+import onInstall from './onInstall'
+
 const REDIRECT = chrome.declarativeNetRequest.RuleActionType.REDIRECT
 const MAIN_FRAME = chrome.declarativeNetRequest.ResourceType.MAIN_FRAME
 const SUB_FRAME = chrome.declarativeNetRequest.ResourceType.SUB_FRAME
@@ -37,6 +39,8 @@ blockUrls.forEach((domain, index) => {
     removeRuleIds: [id],
   })
 })
+
+onInstall()
 
 // chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 //   const keywords = ['example']
