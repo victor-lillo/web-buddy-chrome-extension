@@ -1,12 +1,14 @@
 import '../styles/app.css'
-import Counter from '../components/Counter.svelte'
+import Time from '../components/Time.svelte'
+import { getStorage } from '../utils/storage'
 
 const target = document.getElementById('app')
 
 async function render() {
-  const { count } = await chrome.storage.sync.get({ count: 0 })
+  const installDate = await getStorage('date')
+  console.log('La constante prueba es:', installDate)
 
-  new Counter({ target, props: { count } })
+  new Time({ target, props: { installDate } })
 }
 
 document.addEventListener('DOMContentLoaded', render)
