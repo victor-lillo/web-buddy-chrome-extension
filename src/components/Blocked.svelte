@@ -4,7 +4,7 @@
 </script>
 
 <section>
-  <h1>Don't give up, you're doing great</h1>
+  <h1>Don't give up, you're doing great!</h1>
   <p>
     Current time blocking garbage: <span>{time}</span>
   </p>
@@ -15,10 +15,16 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border: 1px solid black;
+    min-height: 80%;
   }
   h1 {
+    color: var(--color-dark-2);
     font-size: 2rem;
-    color: blue;
+  }
+
+  p {
+    font-size: 1.5rem;
   }
   span {
     font-weight: 600;

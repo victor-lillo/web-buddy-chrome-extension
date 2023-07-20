@@ -1,7 +1,7 @@
 import '../styles/app.css'
 import Blocked from '../components/Blocked.svelte'
 
-const target = document.getElementById('app')
+const target = document.getElementById('full-page-app')
 
 const time = 12
 async function render() {
