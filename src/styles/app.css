@@ -1,5 +1,17 @@
 @import url(reset.css);
+@import url(tokens.css);
 
-body {
-  background-color: lightgoldenrodyellow;
+html {
+  background-color: var(--color-light-1);
+}
+
+#app {
+  padding: 1rem;
+}
+
+#full-page-app {
+  border: 1px solid black;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
 }
