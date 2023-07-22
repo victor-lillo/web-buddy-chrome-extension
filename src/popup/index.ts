@@ -5,8 +5,7 @@ import { getStorage } from '../utils/storage'
 const target = document.getElementById('app')
 
 async function render() {
-  const installDate = await getStorage('date')
-  console.log('La constante prueba es:', installDate)
+  const installDate = await getStorage('installDate')
 
   new Time({ target, props: { installDate } })
 }
