@@ -2,17 +2,13 @@
   export let relativeTime: string
 </script>
 
-<section>
-  <p>
-    You installed the extensión:&nbsp;<strong>{relativeTime}</strong>
-  </p>
-</section>
+<p>
+  You installed the extensión:&nbsp;<strong>{relativeTime}</strong>
+</p>
 
 <style>
-  section {
-    display: flex;
-    flex-direction: column;
+  p {
     white-space: nowrap;
-    gap: 1rem;
+    font-size: 1rem;
   }
 </style>

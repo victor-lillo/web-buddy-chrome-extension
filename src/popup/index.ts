@@ -1,5 +1,5 @@
 import '../styles/app.css'
-import Time from '../components/Time.svelte'
+import Popup from '../pages/Popup.svelte'
 import { getStorage } from '../utils/storage'
 import { getRelativeTime } from '../utils/relativeDate'
 
@@ -9,7 +9,7 @@ async function render() {
   const installDate = await getStorage('installDate')
   const relativeTime = getRelativeTime(installDate)
 
-  new Time({ target, props: { relativeTime } })
+  new Popup({ target, props: { relativeTime } })
 }
 
 document.addEventListener('DOMContentLoaded', render)
