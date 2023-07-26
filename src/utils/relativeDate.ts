@@ -18,27 +18,27 @@ const rtf = new Intl.RelativeTimeFormat('en', {
 
 const RELATIVE_FORMAT = {
   minute: (timestamp: number) => {
-    const minDifference = Math.round(timestamp / MIN_MILLISECONDS)
-    return rtf.format(minDifference, FORMATS.minute)
+    const difference = Math.round(timestamp / MIN_MILLISECONDS)
+    return rtf.format(difference, FORMATS.minute)
   },
   hour: (timestamp: number) => {
-    const minDifference = Math.round(timestamp / HOUR_MILLISECONDS)
-    return rtf.format(minDifference, FORMATS.hour)
+    const difference = Math.round(timestamp / HOUR_MILLISECONDS)
+    return rtf.format(difference, FORMATS.hour)
   },
   day: (timestamp: number) => {
-    const minDifference = Math.round(timestamp / DAY_MILLISECONDS)
-    return rtf.format(minDifference, FORMATS.day)
+    const difference = Math.round(timestamp / DAY_MILLISECONDS)
+    return rtf.format(difference, FORMATS.day)
   },
   month: (timestamp: number) => {
-    const minDifference = Math.round(timestamp / MONTH_MILLISECONDS)
-    return rtf.format(minDifference, FORMATS.month)
+    const difference = Math.round(timestamp / MONTH_MILLISECONDS)
+    return rtf.format(difference, FORMATS.month)
   },
 }
 
 const getMsDifferenceFromToday = (timestamp: number) => {
   const todayTimestamp = new Date().getTime()
-  const msDifference = timestamp - todayTimestamp
-  return msDifference
+  const difference = timestamp - todayTimestamp
+  return difference
 }
 
 export function getRelativeTime(timestamp: number) {
