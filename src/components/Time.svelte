@@ -1,14 +1,19 @@
 <script lang="ts">
-  export let installDate: number
-  let message = null
+  import { getRelativeTime } from '../utils/relativeDate'
 
-  const rtf1 = new Intl.RelativeTimeFormat('en', { style: 'short' })
+  export let installDate: number
+
+  const relativeTime = getRelativeTime(installDate)
+  console.log({ relativeTime })
 </script>
 
 <section>
   <h1>
     Current time blocking sites:&nbsp;<strong>{installDate}</strong>
   </h1>
+  <p>
+    You installed the extensión:&nbsp;<strong>{relativeTime}</strong>
+  </p>
 </section>
 
 <style>
@@ -16,6 +21,7 @@
     display: flex;
     flex-direction: column;
     white-space: nowrap;
+    gap: 1rem;
   }
 
   h1 {
