@@ -16,30 +16,42 @@ const rtf = new Intl.RelativeTimeFormat('en', {
   style: 'long',
 })
 
-const getMsDifferenceFromToday = (timestamp) => {
+const RELATIVE_FORMAT = {
+  minute: (timestamp: number) => {
+    const minDifference = Math.round(timestamp / MIN_MILLISECONDS)
+    return rtf.format(minDifference, FORMATS.minute)
+  },
+  hour: (timestamp: number) => {
+    const minDifference = Math.round(timestamp / HOUR_MILLISECONDS)
+    return rtf.format(minDifference, FORMATS.hour)
+  },
+  day: (timestamp: number) => {
+    const minDifference = Math.round(timestamp / DAY_MILLISECONDS)
+    return rtf.format(minDifference, FORMATS.day)
+  },
+  month: (timestamp: number) => {
+    const minDifference = Math.round(timestamp / MONTH_MILLISECONDS)
+    return rtf.format(minDifference, FORMATS.month)
+  },
+}
+
+const getMsDifferenceFromToday = (timestamp: number) => {
   const todayTimestamp = new Date().getTime()
   const msDifference = timestamp - todayTimestamp
   return msDifference
 }
 
 export function getRelativeTime(timestamp: number) {
-  const msDifference = getMsDifferenceFromToday(timestamp)
-
-  console.log(msDifference)
-  // const daysDifference = Math.round(msDifference / DAY_MILLISECONDS)
-  const positiveDifference = msDifference * -1
+  const difference = getMsDifferenceFromToday(timestamp)
+  const positiveDifference = Math.abs(difference)
 
   if (positiveDifference >= MONTH_MILLISECONDS) {
+    return RELATIVE_FORMAT.month(difference)
   } else if (positiveDifference >= DAY_MILLISECONDS) {
-    console.log('Day')
+    return RELATIVE_FORMAT.day(difference)
   } else if (positiveDifference >= HOUR_MILLISECONDS) {
-    console.log('Hour')
-  } else if (positiveDifference >= MIN_MILLISECONDS) {
-    console.log('Minute')
-    const minDifference = Math.round(msDifference / MIN_MILLISECONDS)
-    return rtf.format(minDifference, 'minute')
+    return RELATIVE_FORMAT.hour(difference)
+  } else {
+    return RELATIVE_FORMAT.minute(difference)
   }
-  // const relative = rtf.format(msDifference / MIN_MILLISECONDS, 'minute')
-  // console.log(relative)
-  // return rtf.format(daysDifference, FORMATS.day)
 }
