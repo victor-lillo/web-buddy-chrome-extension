@@ -3,7 +3,7 @@
 </script>
 
 <p>
-  You installed the extensión:&nbsp;<strong>{relativeTime}</strong>
+  You installed the extension:&nbsp;<strong>{relativeTime}</strong>
 </p>
 
 <style>
