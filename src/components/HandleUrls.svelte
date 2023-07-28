@@ -1,5 +1,24 @@
 <script lang="ts">
   export let blockedUrls: [string]
+  let isSelectAll = false
+  let selectedUrls = []
+
+  const handleSelectAllChange = (e) => {
+    const isChecked = e.target.checked
+    if (isChecked) {
+      selectedUrls = blockedUrls
+    } else {
+      selectedUrls = []
+    }
+  }
+
+  const handleSelectChange = () => {
+    if (blockedUrls.length === selectedUrls.length) {
+      isSelectAll = true
+    } else if (isSelectAll) {
+      isSelectAll = false
+    }
+  }
 
   const handleSave = () => {
     console.log('Saved')
@@ -15,18 +34,22 @@
 <section>
   <h1>Blocked urls</h1>
   <fieldset>
-    <div class="fieldset-row">
+    <div class="fieldset-row fieldset-row--header">
       <label for="select-all"> Select all </label>
-      <input id="select-all" type="checkbox" />
+      <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
     </div>
     {#each blockedUrls as url}
       <div class="fieldset-row">
         <label for={url}>
           {url}
         </label>
-        <input id={url} type="checkbox" />
+        <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
       </div>
     {/each}
+    {#if selectedUrls.length > 0}
+      Selected urls:
+      {selectedUrls.toString()}
+    {/if}
   </fieldset>
   <button on:click={handleSave}>Delete</button>
 </section>
@@ -35,7 +58,7 @@
   section {
     display: flex;
     flex-direction: column;
-    white-space: nowrap;
+    gap: 1rem;
     font-size: 1rem;
     line-height: 1.5;
     padding: 1rem;
@@ -50,6 +73,7 @@
 
   fieldset {
     border: none;
+    padding: 0;
   }
 
   .fieldset-row {
@@ -57,6 +81,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
+  }
+  .fieldset-row--header {
+    background-color: rgb(255, 253, 232);
+    color: var(--color-dark-2);
   }
 
   button {
