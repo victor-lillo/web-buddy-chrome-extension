@@ -1,11 +1,11 @@
 import '../styles/app.css'
-import Counter from '../components/Counter.svelte'
+import Options from './Options.svelte'
 
-const target = document.getElementById('app')
+const target = document.getElementById('full-page-app')
 
 async function render() {
-  // const { count } = await chrome.storage.sync.get({ count: 0 })
-  // new Counter({ target, props: { count } })
+  const blockedUrls = ['url1', 'url2', 'url2']
+  new Options({ target, props: { blockedUrls } })
 }
 
 document.addEventListener('DOMContentLoaded', render)
