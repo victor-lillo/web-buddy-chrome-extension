@@ -1,5 +1,5 @@
 import '../styles/app.css'
-import Popup from '../pages/Popup.svelte'
+import Popup from './Popup.svelte'
 import { getStorage } from '../utils/storage'
 import { getRelativeTime } from '../utils/relativeDate'
 
