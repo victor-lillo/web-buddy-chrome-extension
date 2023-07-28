@@ -2,7 +2,7 @@
 @import url(tokens.css);
 
 html {
-  background-color: var(--color-light-1);
+  background-color: var(--color-light-3);
 }
 
 #app {
@@ -10,7 +10,6 @@ html {
 }
 
 #full-page-app {
-  border: 1px solid black;
   display: grid;
   place-items: center;
   min-height: 100vh;
