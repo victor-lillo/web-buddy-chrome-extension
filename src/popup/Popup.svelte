@@ -3,11 +3,16 @@
   import Form from '../components/Form.svelte'
 
   export let relativeTime: string
+
+  const handleClick = () => {
+    chrome.runtime.openOptionsPage()
+  }
 </script>
 
 <section>
   <Time {relativeTime} />
   <Form />
+  <button on:click={handleClick}>Go to settings</button>
 </section>
 
 <style>
