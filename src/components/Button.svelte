@@ -9,6 +9,7 @@
 
 <button on:click={handleClick} class={variant} {disabled} {type}>
   {text}
+  <slot />
 </button>
 
 <style>
