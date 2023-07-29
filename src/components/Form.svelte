@@ -9,7 +9,7 @@
 
 <form on:submit|preventDefault={handleSave}>
   <label for="story">Add the URLs you want to block</label>
-  <textarea id="story" name="story" rows="5" cols="33" bind:value />
+  <textarea id="story" name="story" bind:value />
   <Button text={'Save'} disabled={value.length === 0} variant={'primary'} type="submit" />
 </form>
 
@@ -27,8 +27,10 @@
   }
 
   textarea {
+    width: 100%;
     resize: vertical;
     max-height: 200px;
     min-height: 100px;
+    font-family: var(--font-family);
   }
 </style>
