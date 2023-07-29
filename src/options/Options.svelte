@@ -4,10 +4,6 @@
   import DevHandleStorage from '../components/dev/DevHandleStorage.svelte'
 
   export let blockedUrls
-
-  const handleClick = () => {
-    chrome.runtime.openOptionsPage()
-  }
 </script>
 
 <section>

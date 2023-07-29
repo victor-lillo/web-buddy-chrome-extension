@@ -1,6 +1,5 @@
 <script lang="ts">
   export let time: number
-  let message: string = null
 </script>
 
 <section>
