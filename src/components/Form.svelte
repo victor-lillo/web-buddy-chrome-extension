@@ -10,7 +10,7 @@
 <form on:submit|preventDefault={handleSave}>
   <label for="story">Add the URLs you want to block</label>
   <textarea id="story" name="story" bind:value />
-  <Button text={'Save'} disabled={value.length === 0} variant={'primary'} type="submit" />
+  <Button text={'Save URLs'} disabled={value.length === 0} variant={'primary'} type="submit" />
 </form>
 
 <style>

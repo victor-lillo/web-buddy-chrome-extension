@@ -56,7 +56,7 @@
       {userBlockedUrls.toString()}
     {/if}
   </fieldset>
-  <Button text={'Save'} handleClick={handleSave} disabled={userBlockedUrls.length === 0} variant={'primary'}>
+  <Button text={'Delete selected'} handleClick={handleSave} disabled={userBlockedUrls.length === 0} variant={'primary'}>
     <Delete />
   </Button>
 </section>
