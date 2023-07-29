@@ -51,7 +51,7 @@
       {selectedUrls.toString()}
     {/if}
   </fieldset>
-  <button on:click={handleSave}>Delete</button>
+  <button on:click={handleSave} disabled={selectedUrls.length === 0}>Delete</button>
 </section>
 
 <style>
