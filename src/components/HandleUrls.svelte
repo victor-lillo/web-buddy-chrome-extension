@@ -59,12 +59,13 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
     font-size: 1rem;
     line-height: 1.5;
     padding: 1rem;
     background-color: var(--color-light-0);
     border: 1px solid var(--color-light-4);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
   }
 
   h1 {
@@ -72,6 +73,9 @@
   }
 
   fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     border: none;
     padding: 0;
   }
@@ -82,20 +86,28 @@
     justify-content: space-between;
     gap: 0.5rem;
   }
+
   .fieldset-row--header {
     background-color: rgb(255, 253, 232);
     color: var(--color-dark-2);
   }
 
   button {
-    font-size: inherit;
-    background: none;
+    font-size: 1.1rem;
+    color: var(--color-light-1);
+    background-color: #9328cc;
     border: 1px solid transparent;
-    padding: 0.6rem;
+    border-radius: var(--border-radius);
+    padding: 0.6rem 1.2rem;
+    width: fit-content;
   }
 
-  button:hover,
-  button:focus {
-    background-color: lightblue;
+  button:is(:hover, :focus):not(:disabled) {
+    background-color: #9e3ed1;
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  button:disabled {
+    opacity: 0.6;
   }
 </style>
