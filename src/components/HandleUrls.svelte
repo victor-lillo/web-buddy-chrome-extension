@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getFullStorage, setStorage } from '../utils/storage'
+  import { getWholeStorage, setStorage } from '../utils/storage'
 
   export let defaultBlockedUrls: [string]
   let isSelectAll = false
@@ -34,7 +34,7 @@
   }
 
   const getStorage = async () => {
-    const storage = await getFullStorage()
+    const storage = await getWholeStorage()
     console.log(storage)
   }
 </script>

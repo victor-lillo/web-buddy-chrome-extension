@@ -17,11 +17,11 @@ export async function setStorage(value: { [key: string]: string | number | Array
 }
 
 export async function getStorage(key: string) {
-  const result = await getFullStorage()
+  const result = await getWholeStorage()
   return result[key]
 }
 
-export async function getFullStorage() {
+export async function getWholeStorage() {
   const result = await chrome.storage.sync.get()
   return result
 }
