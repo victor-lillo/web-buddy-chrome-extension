@@ -1,11 +1,14 @@
 <script lang="ts">
-  type Variants = 'dev-red' | 'dev-green'
+  type Variants = 'dev-red' | 'dev-green' | 'primary'
   export let text: string
   export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement>
   export let variant: Variants | undefined = undefined
+  export let disabled = false
 </script>
 
-<button on:click={handleClick} class={variant}>{text}</button>
+<button on:click={handleClick} class={variant} {disabled}>
+  {text}
+</button>
 
 <style>
   button {
@@ -33,8 +36,13 @@
     --background-color: crimson;
     --border-color: #ffcd07;
   }
+
   .dev-green {
     --background-color: #009e20;
     --border-color: #ffcd07;
+  }
+
+  .primary {
+    --background-color: #9328cc;
   }
 </style>
