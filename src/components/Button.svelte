@@ -23,6 +23,9 @@
     border-radius: var(--border-radius);
     padding: 0.4rem 1rem;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
   }
 
   button:is(:hover):not(:disabled) {

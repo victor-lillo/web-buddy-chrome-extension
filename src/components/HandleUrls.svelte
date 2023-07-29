@@ -1,6 +1,7 @@
 <script lang="ts">
   import Button from './Button.svelte'
   import { setStorage } from '../utils/storage'
+  import Delete from './icons/Delete.svelte'
 
   export let defaultBlockedUrls: [string]
   let isSelectAll = false
@@ -55,7 +56,9 @@
       {userBlockedUrls.toString()}
     {/if}
   </fieldset>
-  <Button text={'Save'} handleClick={handleSave} disabled={userBlockedUrls.length === 0} variant={'primary'} />
+  <Button text={'Save'} handleClick={handleSave} disabled={userBlockedUrls.length === 0} variant={'primary'}>
+    <Delete />
+  </Button>
 </section>
 
 <style>
