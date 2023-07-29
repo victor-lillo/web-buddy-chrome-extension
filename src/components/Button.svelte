@@ -1,7 +1,7 @@
 <script lang="ts">
   type Variants = 'dev-red' | 'dev-green' | 'primary'
   export let text: string
-  export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement>
+  export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement> = undefined
   export let variant: Variants | undefined = undefined
   export let disabled = false
   export let type: 'submit' | 'reset' = undefined
