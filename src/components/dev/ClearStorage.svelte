@@ -5,9 +5,11 @@
   const text = 'Clear Storage'
 
   const handleClick = async () => {
-    const storage = await clearStorage()
-    console.log(storage)
+    if (window.confirm('Do you really want to delete?')) {
+      const storage = await clearStorage()
+      console.log(storage)
+    }
   }
 </script>
 
-<Button {handleClick} {text} variant={'red'} />
+<Button {handleClick} {text} variant={'dev-red'} />

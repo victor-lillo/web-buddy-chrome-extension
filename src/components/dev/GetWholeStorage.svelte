@@ -10,4 +10,4 @@
   }
 </script>
 
-<Button {handleClick} {text} />
+<Button {handleClick} {text} variant={'dev-green'} />
