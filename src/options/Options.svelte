@@ -22,5 +22,6 @@
     flex-direction: column;
     gap: 1rem;
     min-height: 80%;
+    min-width: 80ch;
   }
 </style>
