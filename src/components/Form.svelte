@@ -1,13 +1,16 @@
 <script lang="ts">
-  function validate() {
-    console.log("I'm the validate() function")
+  import Button from './Button.svelte'
+
+  let value: string = ''
+  function handleSave() {
+    console.log("I'm the handleSave()) function")
   }
 </script>
 
-<form on:submit|preventDefault={validate}>
+<form on:submit|preventDefault={handleSave}>
   <label for="story">Add the URLs you want to block</label>
-  <textarea id="story" name="story" rows="5" cols="33" />
-  <button type="submit"> Save me! </button>
+  <textarea id="story" name="story" rows="5" cols="33" bind:value />
+  <Button text={'Save'} disabled={value.length === 0} variant={'primary'} type="submit" />
 </form>
 
 <style>
@@ -16,14 +19,16 @@
     flex-direction: column;
     font-size: 1rem;
     gap: 0.5rem;
+    align-items: center;
+  }
+
+  label {
+    align-self: flex-start;
   }
 
   textarea {
     resize: vertical;
     max-height: 200px;
-  }
-
-  button {
-    width: fit-content;
+    min-height: 100px;
   }
 </style>
