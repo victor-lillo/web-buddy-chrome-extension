@@ -1,5 +1,5 @@
 <script lang="ts">
-  import DevButton from './DevButton.svelte'
+  import Button from '../Button.svelte'
   import { clearStorage } from '../../utils/storage'
 
   const text = 'Clear Storage'
@@ -10,4 +10,4 @@
   }
 </script>
 
-<DevButton {handleClick} {text} variant={'red'} />
+<Button {handleClick} {text} variant={'red'} />

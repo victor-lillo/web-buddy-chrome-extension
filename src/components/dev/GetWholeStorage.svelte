@@ -1,5 +1,5 @@
 <script lang="ts">
-  import DevButton from './DevButton.svelte'
+  import Button from '../Button.svelte'
   import { getWholeStorage } from '../../utils/storage'
 
   const text = 'Log Storage'
@@ -10,4 +10,4 @@
   }
 </script>
 
-<DevButton {handleClick} {text} />
+<Button {handleClick} {text} />

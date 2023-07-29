@@ -5,9 +5,7 @@
   export let variant: Variants | undefined = undefined
 </script>
 
-{#if import.meta.env.DEV}
-  <button on:click={handleClick} class={variant}>{text}</button>
-{/if}
+<button on:click={handleClick} class={variant}>{text}</button>
 
 <style>
   button {
