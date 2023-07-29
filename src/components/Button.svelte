@@ -4,9 +4,10 @@
   export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement>
   export let variant: Variants | undefined = undefined
   export let disabled = false
+  export let type: 'submit' | 'reset' = undefined
 </script>
 
-<button on:click={handleClick} class={variant} {disabled}>
+<button on:click={handleClick} class={variant} {disabled} {type}>
   {text}
 </button>
 
