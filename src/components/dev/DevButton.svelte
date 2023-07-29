@@ -12,7 +12,7 @@
 <style>
   button {
     --background-color: #009e20;
-    --border-color: crimson;
+    --border-color: #ffcd07;
     font-size: 1rem;
     color: var(--color-light-1);
     background-color: var(--background-color);
@@ -33,6 +33,5 @@
 
   .red {
     --background-color: crimson;
-    --border-color: #009e20;
   }
 </style>
