@@ -1,14 +1,14 @@
 <script lang="ts">
   import { getWholeStorage } from '../../utils/storage'
 
-  const getStorage = async () => {
+  const handleClick = async () => {
     const storage = await getWholeStorage()
     console.log(storage)
   }
 </script>
 
 {#if import.meta.env.DEV}
-  <button on:click={getStorage}>Get Storage</button>
+  <button on:click={handleClick}>Log Storage</button>
 {/if}
 
 <style>

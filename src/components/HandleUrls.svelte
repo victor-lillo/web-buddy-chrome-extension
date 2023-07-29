@@ -1,6 +1,6 @@
 <script lang="ts">
   import { setStorage } from '../utils/storage'
-  import GetFullStorage from './dev/GetFullStorage.svelte'
+  import GetWholeStorage from './dev/GetWholeStorage.svelte'
 
   export let defaultBlockedUrls: [string]
   let isSelectAll = false
@@ -55,7 +55,7 @@
       {userBlockedUrls.toString()}
     {/if}
   </fieldset>
-  <GetFullStorage />
+  <GetWholeStorage />
   <button on:click={handleSave} disabled={userBlockedUrls.length === 0}>Delete</button>
 </section>
 
