@@ -32,7 +32,7 @@
 </script>
 
 <section>
-  <h1>Blocked urls</h1>
+  <h1>Delete blocked URLs</h1>
   <fieldset>
     <div class="fieldset-row fieldset-row--header">
       <label for="select-all"> Select all </label>
