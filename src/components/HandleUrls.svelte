@@ -109,9 +109,12 @@
     width: fit-content;
   }
 
-  button:is(:hover, :focus):not(:disabled) {
+  button:is(:hover):not(:disabled) {
     background-color: #9e3ed1;
     box-shadow: var(--box-shadow-hover);
+  }
+  button:is(:focus):not(:disabled) {
+    border-color: black;
   }
 
   button:disabled {
