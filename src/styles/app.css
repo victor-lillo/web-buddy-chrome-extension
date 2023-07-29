@@ -4,6 +4,7 @@
 html {
   background-color: var(--color-light-3);
   line-height: 1.5;
+  font-family: var(--font-family);
 }
 
 #app {
