@@ -11,7 +11,7 @@
 
 <section>
   <Form />
-  <HandleUrls {blockedUrls} />
+  <HandleUrls defaultBlockedUrls={blockedUrls} />
 </section>
 
 <style>

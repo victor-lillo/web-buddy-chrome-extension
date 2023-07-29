@@ -1,33 +1,41 @@
 <script lang="ts">
-  export let blockedUrls: [string]
+  import { getFullStorage, setStorage } from '../utils/storage'
+
+  export let defaultBlockedUrls: [string]
   let isSelectAll = false
-  let selectedUrls = []
+  let userBlockedUrls = []
 
   const handleSelectAllChange = (e) => {
     const isChecked = e.target.checked
     if (isChecked) {
-      selectedUrls = blockedUrls
+      userBlockedUrls = defaultBlockedUrls
     } else {
-      selectedUrls = []
+      userBlockedUrls = []
     }
   }
 
   const handleSelectChange = () => {
-    if (blockedUrls.length === selectedUrls.length) {
+    if (defaultBlockedUrls.length === userBlockedUrls.length) {
       isSelectAll = true
     } else if (isSelectAll) {
       isSelectAll = false
     }
   }
 
-  const handleSave = () => {
+  const handleSave = async () => {
     console.log('Saved')
+    await setStorage({ userBlockedUrls })
     // chrome.storage.sync.set({ blockedUrls }).then(() => {
     //   message = 'Updated!'
     //   setTimeout(() => {
     //     message = null
     //   }, 2000)
     // })
+  }
+
+  const getStorage = async () => {
+    const storage = await getFullStorage()
+    console.log(storage)
   }
 </script>
 
@@ -38,20 +46,21 @@
       <label for="select-all"> Select all </label>
       <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
     </div>
-    {#each blockedUrls as url}
+    {#each defaultBlockedUrls as url}
       <div class="fieldset-row">
         <label for={url}>
           {url}
         </label>
-        <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
+        <input type="checkbox" bind:group={userBlockedUrls} name="urls" value={url} on:change={handleSelectChange} />
       </div>
     {/each}
-    {#if selectedUrls.length > 0}
+    {#if userBlockedUrls.length > 0}
       Selected urls:
-      {selectedUrls.toString()}
+      {userBlockedUrls.toString()}
     {/if}
   </fieldset>
-  <button on:click={handleSave} disabled={selectedUrls.length === 0}>Delete</button>
+  <button on:click={getStorage}>Get Storage</button>
+  <button on:click={handleSave} disabled={userBlockedUrls.length === 0}>Delete</button>
 </section>
 
 <style>
