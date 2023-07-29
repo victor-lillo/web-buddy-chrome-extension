@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { getWholeStorage, setStorage } from '../utils/storage'
+  import { setStorage } from '../utils/storage'
+  import GetFullStorage from './dev/GetFullStorage.svelte'
 
   export let defaultBlockedUrls: [string]
   let isSelectAll = false
@@ -32,11 +33,6 @@
     //   }, 2000)
     // })
   }
-
-  const getStorage = async () => {
-    const storage = await getWholeStorage()
-    console.log(storage)
-  }
 </script>
 
 <section>
@@ -59,7 +55,7 @@
       {userBlockedUrls.toString()}
     {/if}
   </fieldset>
-  <button on:click={getStorage}>Get Storage</button>
+  <GetFullStorage />
   <button on:click={handleSave} disabled={userBlockedUrls.length === 0}>Delete</button>
 </section>
 
