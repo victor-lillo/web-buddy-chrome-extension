@@ -12,7 +12,7 @@ export const storage = {
   set: (value): Promise<void> => chrome.storage.sync.set(value),
 }
 
-export async function setStorage(value: { [key: string]: string | number }) {
+export async function setStorage(value: { [key: string]: string | number | Array<any> }) {
   await chrome.storage.sync.set(value)
 }
 
