@@ -68,7 +68,6 @@
     gap: 1rem;
     align-items: center;
     font-size: 1rem;
-    line-height: 1.5;
     padding: 1rem;
     background-color: var(--color-light-0);
     border: 1px solid var(--color-light-4);
