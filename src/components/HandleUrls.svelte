@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Button from './Button.svelte'
   import { setStorage } from '../utils/storage'
 
   export let defaultBlockedUrls: [string]
@@ -54,7 +55,7 @@
       {userBlockedUrls.toString()}
     {/if}
   </fieldset>
-  <button on:click={handleSave} disabled={userBlockedUrls.length === 0}>Delete</button>
+  <Button text={'Save'} handleClick={handleSave} disabled={userBlockedUrls.length === 0} variant={'primary'} />
 </section>
 
 <style>
@@ -92,27 +93,5 @@
   .fieldset-row--header {
     background-color: rgb(255, 253, 232);
     color: var(--color-dark-2);
-  }
-
-  button {
-    font-size: 1.1rem;
-    color: var(--color-light-1);
-    background-color: #9328cc;
-    border: 1px solid transparent;
-    border-radius: var(--border-radius);
-    padding: 0.6rem 1.2rem;
-    width: fit-content;
-  }
-
-  button:is(:hover):not(:disabled) {
-    background-color: #9e3ed1;
-    box-shadow: var(--box-shadow-hover);
-  }
-  button:is(:focus):not(:disabled) {
-    border-color: black;
-  }
-
-  button:disabled {
-    opacity: 0.6;
   }
 </style>
