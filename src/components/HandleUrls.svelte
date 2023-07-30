@@ -3,21 +3,21 @@
   import Delete from './icons/Delete.svelte'
   import { deleteRulesByUrl } from '../utils/rules'
 
-  export let defaultBlockedUrls: Array<string>
+  export let blockedUrls: Array<string>
   let isSelectAll = false
   let selectedUrls = []
 
   const handleSelectAllChange = (e) => {
     const isChecked = e.target.checked
     if (isChecked) {
-      selectedUrls = defaultBlockedUrls
+      selectedUrls = blockedUrls
     } else {
       selectedUrls = []
     }
   }
 
   const handleSelectChange = () => {
-    if (defaultBlockedUrls.length === selectedUrls.length) {
+    if (blockedUrls.length === selectedUrls.length) {
       isSelectAll = true
     } else if (isSelectAll) {
       isSelectAll = false
@@ -28,8 +28,8 @@
     console.log('Remove rules:', selectedUrls)
     await deleteRulesByUrl(selectedUrls)
 
-    const newRules = defaultBlockedUrls.filter((el) => !selectedUrls.includes(el))
-    defaultBlockedUrls = newRules
+    const newRules = blockedUrls.filter((el) => !selectedUrls.includes(el))
+    blockedUrls = newRules
     selectedUrls = []
 
     // chrome.storage.sync.set({ blockedUrls }).then(() => {
@@ -48,7 +48,7 @@
       <label for="select-all"> Select all </label>
       <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
     </div>
-    {#each defaultBlockedUrls as url}
+    {#each blockedUrls as url}
       <div class="fieldset-row">
         <label for={url}>
           {url}
