@@ -31,6 +31,34 @@ export async function setBlockRules(urls: Array<string>) {
   })
 }
 
+export async function deleteBlockRules(urls: Array<string>) {
+  const currentRules = await getRules()
+  const idsToRemove = currentRules
+    .map((el, index) => {
+      if (urls.includes(el.condition.urlFilter)) {
+        return index
+      }
+    })
+    .filter((el) => el)
+  await deleteBlockRulesById(idsToRemove)
+}
+
+async function deleteBlockRulesById(ids: Array<number>) {
+  ids.forEach((id: number) => {
+    chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [id],
+    })
+  })
+}
+export async function resetBlockRules() {
+  const currentRules = await getRules()
+  currentRules.forEach(({ id }) => {
+    chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [id],
+    })
+  })
+}
+
 export async function getRules() {
   return chrome.declarativeNetRequest.getDynamicRules()
 }
