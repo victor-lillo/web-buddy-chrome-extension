@@ -3,7 +3,7 @@
   import Delete from './icons/Delete.svelte'
   import { deleteRulesByUrl } from '../utils/rules'
 
-  export let defaultBlockedUrls: [string]
+  export let defaultBlockedUrls: Array<string>
   let isSelectAll = false
   let selectedUrls = []
 
@@ -27,6 +27,10 @@
   const handleRemove = async () => {
     console.log('Remove rules:', selectedUrls)
     await deleteRulesByUrl(selectedUrls)
+
+    const newRules = defaultBlockedUrls.filter((el) => !selectedUrls.includes(el))
+    defaultBlockedUrls = newRules
+    selectedUrls = []
 
     // chrome.storage.sync.set({ blockedUrls }).then(() => {
     //   message = 'Updated!'
