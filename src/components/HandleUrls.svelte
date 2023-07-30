@@ -31,6 +31,7 @@
     const newUrls = blockedUrls.filter((el) => !selectedUrls.includes(el)).sort()
     blockedUrls = newUrls
     selectedUrls = []
+    isSelectAll = false
     await setStorage({ blockedUrls: newUrls })
   }
 
