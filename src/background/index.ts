@@ -1,5 +1,3 @@
-import { setBlockRules } from '../utils/rules'
-import { STORAGE_KEYS } from './../DEFAULTS'
 import onInstall from './onInstall'
 import onStorageChanged from './onStorageChanged'
 
