@@ -54,14 +54,16 @@
         <label for="select-all"> Select all </label>
         <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
-      {#each blockedUrls as url}
-        <div class="fieldset-row">
-          <label for={url}>
-            {url}
-          </label>
-          <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
-        </div>
-      {/each}
+      <div class="fieldset-content">
+        {#each blockedUrls as url}
+          <div class="fieldset-row">
+            <label for={url}>
+              {url}
+            </label>
+            <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
+          </div>
+        {/each}
+      </div>
     </fieldset>
     <Button
       text={'Delete selected'}
@@ -113,5 +115,25 @@
   .fieldset-row--header {
     background-color: #e8ffe5;
     color: var(--color-dark-2);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+  .fieldset-content {
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+  }
+
+  fieldset ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  fieldset ::-webkit-scrollbar-track {
+    background-color: var(--color-light-1);
+  }
+
+  fieldset ::-webkit-scrollbar-thumb {
+    background-color: var(--color-light-4);
+    border-radius: var(--border-radius);
   }
 </style>
