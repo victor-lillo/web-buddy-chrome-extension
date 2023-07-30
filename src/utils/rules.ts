@@ -5,7 +5,7 @@ const XMLHTTPREQUEST = chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST
 
 const REDIRECT_BLOCKED_PAGE = '/src/blocked/blocked.html'
 
-export async function setRules(urls: Array<string>) {
+export async function setBlockRules(urls: Array<string>) {
   urls.forEach((domain: string, index: number) => {
     let id = index + 1
 

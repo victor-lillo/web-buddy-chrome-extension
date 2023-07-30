@@ -1,5 +1,3 @@
-import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
-import { setRules } from '../utils/rules'
 import onInstall from './onInstall'
 
 console.log('Service worker started.')
@@ -10,7 +8,6 @@ chrome.declarativeNetRequest.onRuleMatchedDebug.addListener((e) => {
 })
 
 onInstall()
-setRules(DEFAULT_BLOCKED_URLS)
 
 // chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 //   const keywords = ['example']
