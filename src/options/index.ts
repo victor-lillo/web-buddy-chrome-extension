@@ -1,10 +1,12 @@
 import '../styles/app.css'
 import Options from './Options.svelte'
+import { getStorage } from '../utils/storage'
 
 const target = document.getElementById('full-page-app')
 
 async function render() {
-  const blockedUrls = ['url1', 'url2', 'url3', 'url4']
+  const blockedUrls = await getStorage('blockedUrls')
+
   new Options({ target, props: { blockedUrls } })
 }
 
