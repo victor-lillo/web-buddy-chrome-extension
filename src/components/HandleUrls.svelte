@@ -2,6 +2,7 @@
   import Button from './Button.svelte'
   import Delete from './icons/Delete.svelte'
   import { deleteRulesByUrl } from '../utils/rules'
+  import { setStorage } from '../utils/storage'
 
   export let blockedUrls: Array<string>
   let isSelectAll = false
@@ -28,8 +29,9 @@
     console.log('Remove rules:', selectedUrls)
     await deleteRulesByUrl(selectedUrls)
 
-    const newRules = blockedUrls.filter((el) => !selectedUrls.includes(el))
-    blockedUrls = newRules
+    const newUrls = blockedUrls.filter((el) => !selectedUrls.includes(el))
+    await setStorage({ blockedUrls: newUrls })
+    blockedUrls = newUrls
     selectedUrls = []
 
     // chrome.storage.sync.set({ blockedUrls }).then(() => {
