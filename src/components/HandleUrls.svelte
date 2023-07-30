@@ -2,8 +2,8 @@
   import Button from './Button.svelte'
   import AddDefaults from './icons/AddDefaults.svelte'
   import Delete from './icons/Delete.svelte'
-  import { deleteRulesByUrl } from '../utils/rules'
   import { setStorage } from '../utils/storage'
+  import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
 
   export let blockedUrls: Array<string>
   let isSelectAll = false
@@ -28,22 +28,17 @@
 
   const handleRemove = async () => {
     console.log('Remove rules:', selectedUrls)
-    await deleteRulesByUrl(selectedUrls)
-
     const newUrls = blockedUrls.filter((el) => !selectedUrls.includes(el))
-    await setStorage({ blockedUrls: newUrls })
     blockedUrls = newUrls
     selectedUrls = []
-
-    // chrome.storage.sync.set({ blockedUrls }).then(() => {
-    //   message = 'Updated!'
-    //   setTimeout(() => {
-    //     message = null
-    //   }, 2000)
-    // })
+    await setStorage({ blockedUrls: newUrls })
   }
-  const handleAddDefaults = () => {
+
+  const handleAddDefaults = async () => {
     console.log('Add defaults')
+    const newUrls = [...new Set([...blockedUrls, ...DEFAULT_BLOCKED_URLS])]
+    blockedUrls = newUrls
+    await setStorage({ blockedUrls: newUrls })
   }
 </script>
 
