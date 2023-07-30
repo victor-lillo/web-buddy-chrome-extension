@@ -1,7 +1,7 @@
 <script lang="ts">
   import HandleUrls from '../components/HandleUrls.svelte'
   import Form from '../components/Form.svelte'
-  import DevHandleStorage from '../components/dev/DevHandleStorage.svelte'
+  import DevComponent from '../components/dev/DevComponent.svelte'
 
   export let blockedUrls
 </script>
@@ -9,7 +9,7 @@
 <section>
   <Form />
   <HandleUrls defaultBlockedUrls={blockedUrls} />
-  <DevHandleStorage />
+  <DevComponent />
 </section>
 
 <style>

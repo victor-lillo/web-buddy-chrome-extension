@@ -1,11 +1,13 @@
 <script lang="ts">
   import GetWholeStorage from './GetWholeStorage.svelte'
   import ClearStorage from './ClearStorage.svelte'
+  import GetDynamicRules from './GetDynamicRules.svelte'
 </script>
 
 {#if import.meta.env.DEV}
   <div>
     <GetWholeStorage />
+    <GetDynamicRules />
     <ClearStorage />
   </div>
 {/if}
