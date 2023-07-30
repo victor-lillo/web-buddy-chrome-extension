@@ -2,6 +2,7 @@
   import GetWholeStorage from './GetWholeStorage.svelte'
   import ClearStorage from './ClearStorage.svelte'
   import GetDynamicRules from './GetDynamicRules.svelte'
+  import ResetDynamicRules from './ResetDynamicRules.svelte'
 </script>
 
 {#if import.meta.env.DEV}
@@ -9,6 +10,7 @@
     <GetWholeStorage />
     <GetDynamicRules />
     <ClearStorage />
+    <ResetDynamicRules />
   </div>
 {/if}
 
