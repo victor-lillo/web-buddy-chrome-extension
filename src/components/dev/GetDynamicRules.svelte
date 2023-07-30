@@ -6,9 +6,13 @@
 
   const handleClick = async () => {
     const rules = await getRules()
-    rules.forEach((rule) => {
-      console.log(rule)
-    })
+    if (rules.length > 0) {
+      rules.forEach((rule) => {
+        console.log(rule)
+      })
+    } else {
+      console.log({ rules })
+    }
   }
 </script>
 
