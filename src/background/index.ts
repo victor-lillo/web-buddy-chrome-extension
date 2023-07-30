@@ -9,6 +9,16 @@ chrome.declarativeNetRequest.onRuleMatchedDebug.addListener((e) => {
 
 onInstall()
 
+// Storage onChanged example
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
+    console.log(
+      `Storage key "${key}" in namespace "${namespace}" changed.`,
+      `Old value was "${oldValue}", new value is "${newValue}".`
+    )
+  }
+})
+
 // chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 //   const keywords = ['example']
 //   console.log(changeInfo.title, changeInfo.url)
