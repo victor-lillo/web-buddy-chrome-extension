@@ -1,12 +1,11 @@
-import { getWholeStorage, setStorage } from '../utils/storage'
 import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
+import { getStorage, setStorage } from '../utils/storage'
 import { setBlockRules } from '../utils/rules'
 
-const onInstallCallback = async () => {
-  await saveInitialDate()
-  const storage = await getWholeStorage()
-  setBlockRules(DEFAULT_BLOCKED_URLS)
-  console.log(storage)
+async function setInitialRules() {
+  const initialBlockedUrls = (await getStorage('userBlockedUrls')) ?? DEFAULT_BLOCKED_URLS
+  setBlockRules(initialBlockedUrls)
+  await setStorage({ blockedUrls: initialBlockedUrls })
 }
 
 async function saveInitialDate() {
@@ -15,6 +14,11 @@ async function saveInitialDate() {
   console.log('Installed Date:', date)
   const installDate = date.getTime()
   await setStorage({ installDate })
+}
+
+const onInstallCallback = async () => {
+  await saveInitialDate()
+  await setInitialRules()
 }
 
 export default function onInstall() {
