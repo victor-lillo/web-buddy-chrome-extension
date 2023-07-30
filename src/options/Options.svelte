@@ -3,12 +3,12 @@
   import Form from '../components/Form.svelte'
   import DevComponent from '../components/dev/DevComponent.svelte'
 
-  export let blockedUrls
+  export let blockedUrls: Array<string>
 </script>
 
 <section>
-  <Form />
-  <HandleUrls {blockedUrls} />
+  <Form bind:blockedUrls />
+  <HandleUrls bind:blockedUrls />
   <DevComponent />
 </section>
 
