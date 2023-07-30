@@ -10,4 +10,9 @@
   </div>
 {/if}
 
-<style></style>
+<style>
+  div {
+    display: flex;
+    gap: 0.2rem;
+  }
+</style>
