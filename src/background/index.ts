@@ -1,6 +1,7 @@
 import { setBlockRules } from '../utils/rules'
 import { STORAGE_KEYS } from './../DEFAULTS'
 import onInstall from './onInstall'
+import onStorageChanged from './onStorageChanged'
 
 console.log('Service worker started.')
 
@@ -10,15 +11,7 @@ chrome.declarativeNetRequest.onRuleMatchedDebug.addListener((e) => {
 })
 
 onInstall()
-
-// Storage onChanged example
-chrome.storage.onChanged.addListener(async (changes, namespace) => {
-  for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-    if (key !== STORAGE_KEYS.blockedUrls) return
-    const sortedNewRules = newValue.sort()
-    await setBlockRules(sortedNewRules)
-  }
-})
+onStorageChanged()
 
 // Chrome onStartup example
 chrome.runtime.onStartup.addListener(() => {
