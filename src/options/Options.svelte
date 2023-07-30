@@ -8,7 +8,7 @@
 
 <section>
   <Form />
-  <HandleUrls defaultBlockedUrls={blockedUrls} />
+  <HandleUrls {blockedUrls} />
   <DevComponent />
 </section>
 
