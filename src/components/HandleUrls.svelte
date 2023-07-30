@@ -42,32 +42,45 @@
     //   }, 2000)
     // })
   }
+  const handleAddDefaults = () => {
+    console.log('Add defaults')
+  }
 </script>
 
 <section>
   <h1>Delete blocked URLs</h1>
-  <fieldset>
-    <div class="fieldset-row fieldset-row--header">
-      <label for="select-all"> Select all </label>
-      <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
-    </div>
-    {#each blockedUrls as url}
-      <div class="fieldset-row">
-        <label for={url}>
-          {url}
-        </label>
-        <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
+  {#if blockedUrls.length === 0}
+    <div>No URls saved.</div>
+  {/if}
+  {#if blockedUrls.length > 0}
+    <fieldset>
+      <div class="fieldset-row fieldset-row--header">
+        <label for="select-all"> Select all </label>
+        <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
-    {/each}
-    {#if selectedUrls.length > 0}
-      Selected urls:
-      {selectedUrls.toString()}
-    {/if}
-  </fieldset>
-  <Button text={'Delete selected'} handleClick={handleRemove} disabled={selectedUrls.length === 0} variant={'primary'}>
-    <Delete />
-  </Button>
-  <Button text={'Add defaults'} handleClick={handleRemove}>
+      {#each blockedUrls as url}
+        <div class="fieldset-row">
+          <label for={url}>
+            {url}
+          </label>
+          <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
+        </div>
+      {/each}
+      {#if selectedUrls.length > 0}
+        Selected urls:
+        {selectedUrls.toString()}
+      {/if}
+    </fieldset>
+    <Button
+      text={'Delete selected'}
+      handleClick={handleRemove}
+      disabled={selectedUrls.length === 0}
+      variant={'primary'}
+    >
+      <Delete />
+    </Button>
+  {/if}
+  <Button text={'Add defaults'} handleClick={handleAddDefaults}>
     <AddDefaults />
   </Button>
 </section>
