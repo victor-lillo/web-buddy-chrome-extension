@@ -30,3 +30,7 @@ export async function setRules(urls: Array<string>) {
     })
   })
 }
+
+export async function getRules() {
+  return chrome.declarativeNetRequest.getDynamicRules()
+}
