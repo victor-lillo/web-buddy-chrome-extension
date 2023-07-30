@@ -50,7 +50,7 @@
 <section>
   <h1>Delete blocked URLs</h1>
   {#if blockedUrls.length === 0}
-    <div>No URls saved.</div>
+    <span>No URls saved.</span>
   {/if}
   {#if blockedUrls.length > 0}
     <fieldset>
@@ -66,10 +66,6 @@
           <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
         </div>
       {/each}
-      {#if selectedUrls.length > 0}
-        Selected urls:
-        {selectedUrls.toString()}
-      {/if}
     </fieldset>
     <Button
       text={'Delete selected'}
