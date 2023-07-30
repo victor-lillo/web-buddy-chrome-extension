@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from './Button.svelte'
+  import AddDefaults from './icons/AddDefaults.svelte'
   import Delete from './icons/Delete.svelte'
   import { deleteRulesByUrl } from '../utils/rules'
   import { setStorage } from '../utils/storage'
@@ -65,6 +66,9 @@
   </fieldset>
   <Button text={'Delete selected'} handleClick={handleRemove} disabled={selectedUrls.length === 0} variant={'primary'}>
     <Delete />
+  </Button>
+  <Button text={'Add defaults'} handleClick={handleRemove}>
+    <AddDefaults />
   </Button>
 </section>
 
