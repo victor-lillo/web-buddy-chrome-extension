@@ -84,7 +84,7 @@
     gap: 1rem;
     align-items: center;
     font-size: 1rem;
-    padding: 1rem;
+    padding: 1rem 0rem;
     background-color: var(--color-light-0);
     border: 1px solid var(--color-light-4);
     border-radius: var(--border-radius);
@@ -106,11 +106,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0rem 1rem;
     gap: 0.5rem;
   }
 
   .fieldset-row--header {
-    background-color: rgb(255, 253, 232);
+    background-color: #e8ffe5;
     color: var(--color-dark-2);
   }
 </style>
