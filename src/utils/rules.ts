@@ -49,7 +49,7 @@ export async function resetBlockRules() {
   await deleteRulesById(totalIds)
 }
 
-export async function getRulesIds() {
+export async function getRulesIds(): Promise<Array<number>> {
   const rules = await getRules()
   return rules.map(({ id }) => id)
 }
