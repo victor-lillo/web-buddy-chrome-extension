@@ -31,7 +31,7 @@ export async function setBlockRules(urls: Array<string>) {
   })
 }
 
-export async function deleteBlockRules(urls: Array<string>) {
+export async function deleteRules(urls: Array<string>) {
   const currentRules = await getRules()
   const idsToRemove = currentRules
     .map((el, index) => {
@@ -40,10 +40,10 @@ export async function deleteBlockRules(urls: Array<string>) {
       }
     })
     .filter((el) => el)
-  await deleteBlockRulesById(idsToRemove)
+  await deleteRulesById(idsToRemove)
 }
 
-async function deleteBlockRulesById(ids: Array<number>) {
+async function deleteRulesById(ids: Array<number>) {
   ids.forEach((id: number) => {
     chrome.declarativeNetRequest.updateDynamicRules({
       removeRuleIds: [id],
