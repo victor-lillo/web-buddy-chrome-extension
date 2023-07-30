@@ -1,6 +1,7 @@
 <script lang="ts">
   import Time from '../components/Time.svelte'
   import Form from '../components/Form.svelte'
+  import Button from '../components/Button.svelte'
 
   export let relativeTime: string
 
@@ -12,7 +13,7 @@
 <section>
   <Time {relativeTime} />
   <Form />
-  <button on:click={handleClick}>Go to settings</button>
+  <Button {handleClick} text="Go to Settings" />
 </section>
 
 <style>
