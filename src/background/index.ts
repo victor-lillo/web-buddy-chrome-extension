@@ -24,16 +24,3 @@ chrome.storage.onChanged.addListener(async (changes, namespace) => {
 chrome.runtime.onStartup.addListener(() => {
   console.log('Browser init')
 })
-
-// chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
-//   const keywords = ['example']
-//   console.log(changeInfo.title, changeInfo.url)
-//   if (keywords && changeInfo.title) {
-//     const { title } = changeInfo
-//     const containsKeyword = keywords.some((keyword) => title.toLowerCase().includes(keyword))
-//     if (containsKeyword) {
-//       console.log('Lo contiene')
-//       chrome.tabs.update(tabId, { url: //todo redirectExtensionPath })
-//     }
-//   }
-// })
