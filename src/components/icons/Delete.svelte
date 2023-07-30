@@ -1,47 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 256 256"
-  ><rect width="256" height="256" fill="none" /><line
-    x1="216"
-    y1="56"
-    x2="40"
-    y2="56"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="16"
-  /><line
-    x1="104"
-    y1="104"
-    x2="104"
-    y2="168"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="16"
-  /><line
-    x1="152"
-    y1="104"
-    x2="152"
-    y2="168"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="16"
-  /><path
-    d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="16"
-  /><path
-    d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56"
-    fill="none"
-    stroke="currentColor"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    stroke-width="16"
-  /></svg
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  class="icon icon-tabler icon-tabler-trash"
+  width="25"
+  height="25"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  fill="none"
+  stroke-linecap="round"
+  stroke-linejoin="round"
 >
+  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 7l16 0" />
+  <path d="M10 11l0 6" />
+  <path d="M14 11l0 6" />
+  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+</svg>
