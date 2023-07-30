@@ -28,7 +28,7 @@
 
   const handleRemove = async () => {
     console.log('Remove rules:', selectedUrls)
-    const newUrls = blockedUrls.filter((el) => !selectedUrls.includes(el))
+    const newUrls = blockedUrls.filter((el) => !selectedUrls.includes(el)).sort()
     blockedUrls = newUrls
     selectedUrls = []
     await setStorage({ blockedUrls: newUrls })
@@ -36,7 +36,7 @@
 
   const handleAddDefaults = async () => {
     console.log('Add defaults')
-    const newUrls = [...new Set([...blockedUrls, ...DEFAULT_BLOCKED_URLS])]
+    const newUrls = [...new Set([...blockedUrls, ...DEFAULT_BLOCKED_URLS])].sort()
     blockedUrls = newUrls
     await setStorage({ blockedUrls: newUrls })
   }
