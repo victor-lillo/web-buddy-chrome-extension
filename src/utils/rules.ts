@@ -21,7 +21,7 @@ export async function setBlockRules(urls: Array<string>) {
             },
           },
           condition: {
-            urlFilter: `||${domain}`,
+            urlFilter: formatUrlIntoFilter(domain),
             resourceTypes: [MAIN_FRAME, SUB_FRAME, XMLHTTPREQUEST],
           },
         },
@@ -33,9 +33,10 @@ export async function setBlockRules(urls: Array<string>) {
 
 export async function deleteRulesByUrl(urls: Array<string>) {
   const currentRules = await getRules()
+  const formattedUrls = urls.map((url) => formatUrlIntoFilter(url))
   const idsToRemove = currentRules
     .map((el, index) => {
-      if (urls.includes(el.condition.urlFilter)) {
+      if (formattedUrls.includes(el.condition.urlFilter)) {
         return index
       }
     })
@@ -61,4 +62,8 @@ export async function resetBlockRules() {
 
 export async function getRules() {
   return chrome.declarativeNetRequest.getDynamicRules()
+}
+
+export function formatUrlIntoFilter(url: string) {
+  return `||${url}`
 }
