@@ -1,32 +1,33 @@
 <script lang="ts">
   import Button from './Button.svelte'
-  import { setStorage } from '../utils/storage'
   import Delete from './icons/Delete.svelte'
+  import { deleteBlockRules } from '../utils/rules'
 
   export let defaultBlockedUrls: [string]
   let isSelectAll = false
-  let userBlockedUrls = []
+  let selectedUrls = []
 
   const handleSelectAllChange = (e) => {
     const isChecked = e.target.checked
     if (isChecked) {
-      userBlockedUrls = defaultBlockedUrls
+      selectedUrls = defaultBlockedUrls
     } else {
-      userBlockedUrls = []
+      selectedUrls = []
     }
   }
 
   const handleSelectChange = () => {
-    if (defaultBlockedUrls.length === userBlockedUrls.length) {
+    if (defaultBlockedUrls.length === selectedUrls.length) {
       isSelectAll = true
     } else if (isSelectAll) {
       isSelectAll = false
     }
   }
 
-  const handleSave = async () => {
-    console.log('Saved')
-    await setStorage({ userBlockedUrls })
+  const handleRemove = async () => {
+    console.log('Remove')
+    // await deleteBlockRules(selectedUrls)
+
     // chrome.storage.sync.set({ blockedUrls }).then(() => {
     //   message = 'Updated!'
     //   setTimeout(() => {
@@ -48,15 +49,15 @@
         <label for={url}>
           {url}
         </label>
-        <input type="checkbox" bind:group={userBlockedUrls} name="urls" value={url} on:change={handleSelectChange} />
+        <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
       </div>
     {/each}
-    {#if userBlockedUrls.length > 0}
+    {#if selectedUrls.length > 0}
       Selected urls:
-      {userBlockedUrls.toString()}
+      {selectedUrls.toString()}
     {/if}
   </fieldset>
-  <Button text={'Delete selected'} handleClick={handleSave} disabled={userBlockedUrls.length === 0} variant={'primary'}>
+  <Button text={'Delete selected'} handleClick={handleRemove} disabled={selectedUrls.length === 0} variant={'primary'}>
     <Delete />
   </Button>
 </section>
