@@ -1,14 +1,25 @@
 <script lang="ts">
+  import { setStorage } from '../utils/storage'
   import Button from './Button.svelte'
+  export let blockedUrls: Array<string> = []
 
   let value: string = ''
-  function handleSave() {
-    console.log("I'm the handleSave()) function")
-    //TODO añadir reglas
+  function splitWordsByDelimitter(str: string) {
+    const palabrasArray = str.split(/[,.\n]/).map((palabra) => palabra.trim())
+    return palabrasArray.filter((el) => el)
+  }
+
+  async function handleAdd() {
+    console.log('Add rules!')
+    const userUrls = splitWordsByDelimitter(value)
+    const newUrls = [...new Set([...blockedUrls, ...userUrls])].sort()
+    blockedUrls = newUrls
+    value = ''
+    await setStorage({ blockedUrls: newUrls })
   }
 </script>
 
-<form on:submit|preventDefault={handleSave}>
+<form on:submit|preventDefault={handleAdd}>
   <label for="story">Add the URLs you want to block</label>
   <textarea id="story" name="story" bind:value />
   <Button text={'Save URLs'} disabled={value.length === 0} variant={'primary'} type="submit" />
