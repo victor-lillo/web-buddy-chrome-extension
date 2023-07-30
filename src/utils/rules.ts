@@ -31,7 +31,7 @@ export async function setBlockRules(urls: Array<string>) {
   })
 }
 
-export async function deleteRules(urls: Array<string>) {
+export async function deleteRulesByUrl(urls: Array<string>) {
   const currentRules = await getRules()
   const idsToRemove = currentRules
     .map((el, index) => {

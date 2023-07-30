@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from './Button.svelte'
   import Delete from './icons/Delete.svelte'
-  import { deleteRules } from '../utils/rules'
+  import { deleteRulesByUrl } from '../utils/rules'
 
   export let defaultBlockedUrls: [string]
   let isSelectAll = false
@@ -26,7 +26,7 @@
 
   const handleRemove = async () => {
     console.log('Remove')
-    // await deleteRules(selectedUrls)
+    await deleteRulesByUrl(selectedUrls)
 
     // chrome.storage.sync.set({ blockedUrls }).then(() => {
     //   message = 'Updated!'
