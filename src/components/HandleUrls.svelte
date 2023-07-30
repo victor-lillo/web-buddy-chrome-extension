@@ -25,7 +25,7 @@
   }
 
   const handleRemove = async () => {
-    console.log('Remove')
+    console.log('Remove rules:', selectedUrls)
     await deleteRulesByUrl(selectedUrls)
 
     // chrome.storage.sync.set({ blockedUrls }).then(() => {

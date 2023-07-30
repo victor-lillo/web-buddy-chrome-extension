@@ -35,9 +35,9 @@ export async function deleteRulesByUrl(urls: Array<string>) {
   const currentRules = await getRules()
   const formattedUrls = urls.map((url) => formatUrlIntoFilter(url))
   const idsToRemove = currentRules
-    .map((el, index) => {
-      if (formattedUrls.includes(el.condition.urlFilter)) {
-        return index
+    .map(({ condition, id }) => {
+      if (formattedUrls.includes(condition.urlFilter)) {
+        return id
       }
     })
     .filter((el) => el)
@@ -45,19 +45,15 @@ export async function deleteRulesByUrl(urls: Array<string>) {
 }
 
 async function deleteRulesById(ids: Array<number>) {
-  ids.forEach((id: number) => {
-    chrome.declarativeNetRequest.updateDynamicRules({
-      removeRuleIds: [id],
-    })
+  chrome.declarativeNetRequest.updateDynamicRules({
+    removeRuleIds: ids,
   })
 }
+
 export async function resetBlockRules() {
   const currentRules = await getRules()
-  currentRules.forEach(({ id }) => {
-    chrome.declarativeNetRequest.updateDynamicRules({
-      removeRuleIds: [id],
-    })
-  })
+  const totalIds = currentRules.map(({ id }) => id)
+  await deleteRulesById(totalIds)
 }
 
 export async function getRules() {
