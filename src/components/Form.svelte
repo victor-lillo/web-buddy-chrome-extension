@@ -4,6 +4,7 @@
   let value: string = ''
   function handleSave() {
     console.log("I'm the handleSave()) function")
+    //TODO añadir reglas
   }
 </script>
 
