@@ -5,7 +5,7 @@ import { setBlockRules } from '../utils/rules'
 async function setInitialRules() {
   const initialBlockedUrls = (await getStorage(STORAGE_KEYS.blockedUrls)) ?? DEFAULT_BLOCKED_URLS
   setBlockRules(initialBlockedUrls)
-  await setStorage({ blockedUrls: initialBlockedUrls })
+  await setStorage({ [STORAGE_KEYS.blockedUrls]: initialBlockedUrls })
 }
 
 async function saveInitialDate() {
@@ -13,7 +13,7 @@ async function saveInitialDate() {
   // const date = new Date('2022-08-30'
   console.log('Installed Date:', date)
   const installDate = date.getTime()
-  await setStorage({ installDate })
+  await setStorage({ [STORAGE_KEYS.installDate]: installDate })
 }
 
 const onInstallCallback = async () => {
