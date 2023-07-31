@@ -1,7 +1,6 @@
 <script lang="ts">
   import HandleUrls from '../components/HandleUrls.svelte'
   import Form from '../components/Form.svelte'
-  import DevComponent from '../components/dev/DevComponent.svelte'
 
   export let blockedUrls: Array<string>
 </script>
@@ -9,7 +8,6 @@
 <section>
   <Form bind:blockedUrls />
   <HandleUrls bind:blockedUrls />
-  <DevComponent />
 </section>
 
 <style>
