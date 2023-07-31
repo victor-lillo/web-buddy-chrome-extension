@@ -121,7 +121,6 @@
     align-items: center;
     justify-content: space-between;
     padding-right: var(--padding-scrollbar-left);
-    padding-left: calc(var(--padding-scrollbar-left) + var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
   .fieldset-row--header {
@@ -141,6 +140,7 @@
 
   label {
     flex: 1;
+    padding-left: calc(var(--padding-scrollbar-left) + var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
   .fieldset-row--header:has(label:hover) {
