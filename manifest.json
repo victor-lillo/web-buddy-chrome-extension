@@ -1,6 +1,6 @@
 {
   "name": "Web Buddy",
-  "description": "Url blocker extension",
+  "description": "Configure the sites you want to avoid visiting with Web Buddy",
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
