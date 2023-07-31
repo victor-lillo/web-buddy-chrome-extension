@@ -20,7 +20,7 @@
 </script>
 
 <form on:submit|preventDefault={handleAdd}>
-  <label for="story">Add the URLs you want to block</label>
+  <label for="story">Add URLs to block</label>
   <textarea id="story" name="story" bind:value />
   <Button text={'Save URLs'} disabled={value.length === 0} variant={'primary'} type="submit" />
 </form>
@@ -36,6 +36,8 @@
 
   label {
     align-self: flex-start;
+    font-size: 1.4rem;
+    font-weight: var(--font-weight-bold);
   }
 
   textarea {

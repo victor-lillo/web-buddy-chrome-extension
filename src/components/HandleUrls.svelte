@@ -90,7 +90,9 @@
 
   h1 {
     display: flex;
+    font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
+    align-self: flex-start;
   }
 
   fieldset {
