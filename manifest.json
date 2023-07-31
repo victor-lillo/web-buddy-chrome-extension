@@ -1,6 +1,6 @@
 {
-  "name": "Svelte Chrome Extension",
-  "description": "Np Extension using Svelte",
+  "name": "Web Buddy",
+  "description": "Url blocker extension",
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
