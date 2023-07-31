@@ -94,6 +94,7 @@
 
   h1 {
     display: flex;
+    font-weight: var(--font-weight-bold);
   }
 
   fieldset {
