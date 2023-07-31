@@ -51,6 +51,7 @@
     outline: none;
     overflow: hidden;
   }
+
   textarea:focus {
     border-color: var(--color-dark-11);
     /* TODO accent color */
