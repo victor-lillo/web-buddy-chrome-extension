@@ -46,5 +46,13 @@
     max-height: 200px;
     min-height: 100px;
     font-family: var(--font-family);
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    outline: none;
+    overflow: hidden;
+  }
+  textarea:focus {
+    border-color: var(--color-dark-11);
+    /* TODO accent color */
   }
 </style>
