@@ -1,5 +1,5 @@
 import '../styles/app.css'
-import Blocked from '../components/Blocked.svelte'
+import Blocked from './Blocked.svelte'
 import { STORAGE_KEYS } from './../DEFAULTS'
 import { getStorage } from '../utils/storage'
 import { getRelativeTime } from '../utils/relativeDate'
