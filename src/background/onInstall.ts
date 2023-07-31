@@ -10,7 +10,7 @@ async function setInitialRules() {
 
 async function saveInitialDate() {
   const date = new Date()
-  // const date = new Date('2022-08-30'
+  // const date = new Date('2022-08-30') // Mockup date
   console.log('Installed Date:', date)
   const installDate = date.getTime()
   await setStorage({ [STORAGE_KEYS.installDate]: installDate })
