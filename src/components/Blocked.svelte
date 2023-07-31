@@ -1,11 +1,11 @@
 <script lang="ts">
-  export let time: number
+  export let relativeTime: string
 </script>
 
 <section>
   <h1>Don't give up, you're doing great!</h1>
   <p>
-    Current time blocking garbage: <span>{time}</span>
+    You have been blocking garbage since <span>{relativeTime}</span>
   </p>
 </section>
 
@@ -14,8 +14,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border: 1px solid black;
     min-height: 80%;
+    min-width: 80ch;
   }
   h1 {
     color: var(--color-dark-2);
