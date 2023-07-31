@@ -72,18 +72,22 @@
         {/each}
       </div>
     </fieldset>
-    <Button
-      text={'Delete selected'}
-      handleClick={handleRemove}
-      disabled={selectedUrls.length === 0}
-      variant={'primary'}
-    >
-      <Delete />
-    </Button>
   {/if}
-  <Button text={'Add defaults'} handleClick={handleAddDefaults}>
-    <AddDefaults />
-  </Button>
+  <div class="button-container">
+    {#if blockedUrls.length > 0}
+      <Button
+        text={'Delete selected'}
+        handleClick={handleRemove}
+        disabled={selectedUrls.length === 0}
+        variant={'primary'}
+      >
+        <Delete />
+      </Button>
+    {/if}
+    <Button text={'Add defaults'} handleClick={handleAddDefaults}>
+      <AddDefaults />
+    </Button>
+  </div>
 </section>
 
 <style>
@@ -104,7 +108,7 @@
 
   fieldset {
     --width-scrollbar: 0.5rem;
-    --padding-scrollbar-right: 0.3rem;
+    --padding-scrollbar-right: 0.25rem;
     --padding-scrollbar-left: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -158,5 +162,10 @@
   fieldset ::-webkit-scrollbar-thumb {
     background-color: var(--color-light-4);
     border-radius: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 1rem;
   }
 </style>
