@@ -16,6 +16,7 @@
     gap: 1rem;
     min-width: 80ch;
   }
+
   h1 {
     color: var(--color-dark-2);
     font-size: 2rem;
@@ -24,6 +25,7 @@
   p {
     font-size: 1.5rem;
   }
+
   span {
     font-weight: var(--font-weight-bold);
   }
