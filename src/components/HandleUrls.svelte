@@ -60,7 +60,14 @@
             <label for={url}>
               {url}
             </label>
-            <input type="checkbox" bind:group={selectedUrls} name="urls" value={url} on:change={handleSelectChange} />
+            <input
+              bind:group={selectedUrls}
+              id={url}
+              name="urls"
+              on:change={handleSelectChange}
+              type="checkbox"
+              value={url}
+            />
           </div>
         {/each}
       </div>
@@ -130,6 +137,18 @@
     overflow-y: auto;
     scrollbar-gutter: stable;
     margin-right: var(--padding-scrollbar-right);
+  }
+
+  label {
+    flex: 1;
+  }
+
+  .fieldset-row--header:has(label:hover) {
+    background-color: lightgoldenrodyellow;
+  }
+
+  .fieldset-row:has(label:hover):not(.fieldset-row--header) {
+    background-color: lightgoldenrodyellow;
   }
 
   fieldset ::-webkit-scrollbar {
