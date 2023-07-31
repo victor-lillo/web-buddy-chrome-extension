@@ -96,13 +96,14 @@
   fieldset {
     --width-scrollbar: 0.5rem;
     --padding-scrollbar-right: 0.3rem;
+    --padding-scrollbar-left: 0.5rem;
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: none;
     background-color: var(--color-light-0);
-    border: 1px solid var(--color-light-4);
     border-radius: var(--border-radius);
+    border: none;
+    overflow: hidden;
     padding: 0;
   }
 
@@ -110,12 +111,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 0.5rem;
-    padding-left: calc(0.5rem + var(--width-scrollbar) + var(--padding-scrollbar-right));
+    padding-right: var(--padding-scrollbar-left);
+    padding-left: calc(var(--padding-scrollbar-left) + var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
   .fieldset-row--header {
-    background-color: #e8ffe5;
+    background-color: var(--color-light-2);
     color: var(--color-dark-2);
     overflow-y: auto;
     scrollbar-gutter: stable;
@@ -133,12 +134,8 @@
     width: var(--width-scrollbar);
   }
 
-  fieldset ::-webkit-scrollbar-track {
-    background-color: var(--color-light-1);
-  }
-
   fieldset ::-webkit-scrollbar-thumb {
     background-color: var(--color-light-4);
-    border-radius: var(--border-radius);
+    border-radius: 10px;
   }
 </style>
