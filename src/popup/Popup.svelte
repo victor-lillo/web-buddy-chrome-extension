@@ -2,6 +2,7 @@
   import Time from '../components/Time.svelte'
   import Form from '../components/Form.svelte'
   import Button from '../components/Button.svelte'
+  import Settings from '../components/icons/Settings.svelte'
 
   export let relativeTime: string
 
@@ -11,9 +12,13 @@
 </script>
 
 <section>
+  <div>
+    <Button {handleClick} text="Settings" variant={'secondary'}>
+      <Settings />
+    </Button>
+  </div>
   <Time {relativeTime} />
   <Form />
-  <Button {handleClick} text="Go to Settings" />
 </section>
 
 <style>
@@ -21,5 +26,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+  div {
+    align-self: flex-end;
   }
 </style>

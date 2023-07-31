@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Variants = 'dev-red' | 'dev-green' | 'primary'
+  type Variants = 'dev-red' | 'dev-green' | 'primary' | 'secondary'
   export let text: string
   export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement> = undefined
   export let variant: Variants | undefined = undefined
@@ -19,7 +19,7 @@
     font-size: 1rem;
     color: var(--color-light-1);
     background-color: var(--background-color);
-    border: 3px solid var(--border-color);
+    border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 0.4rem 1rem;
     width: fit-content;
@@ -49,5 +49,11 @@
 
   .primary {
     --background-color: #9328cc;
+  }
+
+  .secondary {
+    --background-color: transparent;
+    color: var(--color-dark-1);
+    --border-color: var(--color-dark-1);
   }
 </style>
