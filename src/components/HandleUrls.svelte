@@ -86,10 +86,6 @@
     gap: 1rem;
     align-items: center;
     font-size: 1rem;
-    padding: 1rem 0rem;
-    background-color: var(--color-light-0);
-    border: 1px solid var(--color-light-4);
-    border-radius: var(--border-radius);
   }
 
   h1 {
@@ -98,10 +94,15 @@
   }
 
   fieldset {
+    --width-scrollbar: 0.5rem;
+    --padding-scrollbar-right: 0.3rem;
     display: flex;
     flex-direction: column;
     width: 100%;
     border: none;
+    background-color: var(--color-light-0);
+    border: 1px solid var(--color-light-4);
+    border-radius: var(--border-radius);
     padding: 0;
   }
 
@@ -109,8 +110,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0rem 1rem;
-    gap: 0.5rem;
+    padding-right: 0.5rem;
+    padding-left: calc(0.5rem + var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
   .fieldset-row--header {
@@ -118,15 +119,18 @@
     color: var(--color-dark-2);
     overflow-y: auto;
     scrollbar-gutter: stable;
+    padding-right: calc(var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
+
   .fieldset-content {
     max-height: 300px;
     overflow-y: auto;
     scrollbar-gutter: stable;
+    margin-right: var(--padding-scrollbar-right);
   }
 
   fieldset ::-webkit-scrollbar {
-    width: 10px;
+    width: var(--width-scrollbar);
   }
 
   fieldset ::-webkit-scrollbar-track {
