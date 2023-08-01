@@ -1,9 +1,10 @@
+import { URL_PARAM_ORIGIN } from './../DEFAULTS'
 const REDIRECT = chrome.declarativeNetRequest.RuleActionType.REDIRECT
 const MAIN_FRAME = chrome.declarativeNetRequest.ResourceType.MAIN_FRAME
 const SUB_FRAME = chrome.declarativeNetRequest.ResourceType.SUB_FRAME
 const XMLHTTPREQUEST = chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST
 
-const REDIRECT_BLOCKED_PAGE = '/src/blocked/blocked.html'
+const REDIRECT_BLOCKED_PAGE = chrome.runtime.getURL('/src/blocked/blocked.html')
 
 export async function setBlockRules(urls: Array<string>) {
   // Remove previous rules
@@ -24,12 +25,11 @@ export async function addBlockRules(urls: Array<string>) {
           priority: 1,
           action: {
             type: REDIRECT,
-            redirect: {
-              extensionPath: REDIRECT_BLOCKED_PAGE,
-            },
+            redirect: { regexSubstitution: REDIRECT_BLOCKED_PAGE + `?${URL_PARAM_ORIGIN}=\\0` },
           },
           condition: {
-            urlFilter: formatUrlIntoFilter(domain),
+            requestDomains: [domain],
+            regexFilter: '^.+$',
             resourceTypes: [MAIN_FRAME, SUB_FRAME, XMLHTTPREQUEST],
           },
         },
@@ -59,5 +59,5 @@ export async function getRules() {
 }
 
 export function formatUrlIntoFilter(url: string) {
-  return `||${url}`
+  return `||${url}(.*)`
 }
