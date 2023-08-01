@@ -6,7 +6,6 @@ import { getRelativeTime } from '../utils/relativeDate'
 
 const target = document.getElementById('full-page-app')
 
-const time = 12
 async function render() {
   const installDate = await getStorage(STORAGE_KEYS.installDate)
   const relativeTime = getRelativeTime(installDate)
