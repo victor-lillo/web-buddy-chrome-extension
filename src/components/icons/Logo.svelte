@@ -1,6 +1,6 @@
 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 353.48 242.2">
   <defs>
-    <linearGradient id="b" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="1">
+    <linearGradient id="animatedGradient" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="1">
       <stop offset="0" stop-color="red">
         <animate
           attributeName="stop-color"
@@ -46,6 +46,6 @@
     --size: 200px;
     height: auto;
     width: var(--size);
-    fill: url(#b);
+    fill: url(#animatedGradient);
   }
 </style>
