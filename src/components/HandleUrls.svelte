@@ -53,8 +53,9 @@
   {#if blockedUrls.length > 0}
     <fieldset>
       <div class="fieldset-row fieldset-row--header">
+        <label for="Show all"> Show all </label>
+        <input id="Show all" type="checkbox" bind:checked={isShow} />
         <label for="select-all"> Select all </label>
-        <input id="select-all" type="checkbox" bind:checked={isShow} />
         <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
       <div class="fieldset-content">
