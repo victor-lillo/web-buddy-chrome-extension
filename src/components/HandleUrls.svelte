@@ -128,10 +128,11 @@
   }
 
   .fieldset-row--header {
-    background-color: var(--color-light-2);
+    background-color: #f4eafa;
     color: var(--color-dark-2);
     overflow-y: auto;
     scrollbar-gutter: stable;
+    padding: 0.5rem 0;
     padding-right: calc(var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
@@ -148,11 +149,11 @@
   }
 
   .fieldset-row--header:has(label:hover) {
-    background-color: lightgoldenrodyellow;
+    background-color: #f1e2f8;
   }
 
   .fieldset-row:has(label:hover):not(.fieldset-row--header) {
-    background-color: lightgoldenrodyellow;
+    background-color: #f8f1fc;
   }
 
   fieldset ::-webkit-scrollbar {
