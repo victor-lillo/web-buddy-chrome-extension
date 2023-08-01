@@ -57,10 +57,8 @@
           Show all
           <input id="Show all" type="checkbox" bind:checked={isShow} />
         </label>
-
         <label for="select-all">
           Select all
-
           <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
         </label>
       </div>
