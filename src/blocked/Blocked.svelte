@@ -8,7 +8,7 @@
 
 <section>
   <div>
-    <Logo />
+    <Logo size={2} />
   </div>
   <h1>Don't give up, you're doing great!</h1>
 
