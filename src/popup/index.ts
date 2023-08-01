@@ -9,8 +9,8 @@ const target = document.getElementById('app')
 async function render() {
   const installDate = await getStorage(STORAGE_KEYS.installDate)
   const relativeTime = getRelativeTime(installDate)
-
-  new Popup({ target, props: { relativeTime } })
+  const isAllowedIncognitoAccess = await chrome.extension.isAllowedIncognitoAccess()
+  new Popup({ target, props: { relativeTime, isAllowedIncognitoAccess } })
 }
 
 document.addEventListener('DOMContentLoaded', render)
