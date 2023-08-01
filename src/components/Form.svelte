@@ -4,14 +4,14 @@
   export let blockedUrls: Array<string> = []
 
   let value: string = ''
-  function splitWordsByDelimitter(str: string) {
+  function splitWordsByDelimiter(str: string) {
     const palabrasArray = str.split(/[,\s\n]/).map((palabra) => palabra.trim())
     return palabrasArray.filter((el) => el)
   }
 
   async function handleAdd() {
     console.log('Add rules!')
-    const userUrls = splitWordsByDelimitter(value)
+    const userUrls = splitWordsByDelimiter(value)
     const newUrls = [...new Set([...blockedUrls, ...userUrls])].sort()
     blockedUrls = newUrls
     value = ''
