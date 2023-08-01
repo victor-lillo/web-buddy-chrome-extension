@@ -5,9 +5,10 @@
   export let variant: Variants | undefined = undefined
   export let disabled = false
   export let type: 'submit' | 'reset' = undefined
+  export let width: 'fit-content' | 'full' = 'fit-content'
 </script>
 
-<button on:click={handleClick} class={variant} {disabled} {type}>
+<button on:click={handleClick} class={variant} class:full={width === 'full'} {disabled} {type}>
   {text}
   <slot />
 </button>
@@ -16,15 +17,17 @@
   button {
     --background-color: #009e20;
     --border-color: transparent;
+    --width: fit-content;
     font-size: 1rem;
     color: var(--color-light-1);
     background-color: var(--background-color);
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 0.4rem 1rem;
-    width: fit-content;
+    width: var(--width);
     display: flex;
     align-items: center;
+    justify-content: center;
     white-space: nowrap;
     gap: 0.3rem;
   }
@@ -38,6 +41,9 @@
     opacity: 0.6;
   }
 
+  .full {
+    --width: 100%;
+  }
   .dev-red {
     --background-color: crimson;
     --border-color: #ffcd07;

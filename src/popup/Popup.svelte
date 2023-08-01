@@ -22,16 +22,21 @@
 </script>
 
 <section>
-  <div>
+  <div class="logo-container">
     <Logo size={1} />
   </div>
-  <div class="button-container" class:align-right={isAllowedIncognitoAccess}>
+  <div class="button-container">
     {#if !isAllowedIncognitoAccess}
       <Button handleClick={handleAllowIncognito} text={'Allow in incognito'} variant="alert">
         <Alert />
       </Button>
     {/if}
-    <Button handleClick={handleOptionsPage} text="Settings" variant={'secondary'}>
+    <Button
+      handleClick={handleOptionsPage}
+      text="Settings"
+      variant={'secondary'}
+      width={isAllowedIncognitoAccess ? 'full' : undefined}
+    >
       <Settings />
     </Button>
   </div>
@@ -46,16 +51,13 @@
     gap: 1rem;
   }
 
-  div {
+  .logo-container {
     align-self: center;
   }
 
   .button-container {
     display: flex;
     gap: 1rem;
-  }
-
-  .align-right {
-    align-self: flex-end;
+    /* border: 1px solid black; */
   }
 </style>
