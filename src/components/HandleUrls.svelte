@@ -3,7 +3,7 @@
   import AddDefaults from './icons/AddDefaults.svelte'
   import Delete from './icons/Delete.svelte'
   import { setStorage } from '../utils/storage'
-  import { hideLetters } from '../utils/hideLetters'
+  import { hideCharacters } from '../utils/hideLetters'
   import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
 
   export let blockedUrls: Array<string>
@@ -68,7 +68,7 @@
         {#each blockedUrls as url}
           <div class="fieldset-row">
             <label for={url}>
-              {isShow ? url : hideLetters(url)}
+              {isShow ? url : hideCharacters(url)}
             </label>
             <input
               bind:group={selectedUrls}
