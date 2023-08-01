@@ -1,35 +1,29 @@
 <script lang="ts">
   export let size: 1 | 2 = 1
+  export let animation: Boolean = false
 </script>
 
-<svg class={`icon size-${size}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 353.48 242.2">
-  <defs>
-    <linearGradient id="animatedGradient" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="1">
-      <stop offset="0" stop-color="red">
-        <animate
-          attributeName="stop-color"
-          values="red;purple;blue;green;black;red;"
-          dur="4s"
+<svg class={`icon size-${size}`} class:animation xmlns="http://www.w3.org/2000/svg" viewBox="0 0 353.48 242.2">
+  {#if animation}
+    <defs>
+      <linearGradient id="animatedGradient" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="1">
+        <stop offset="0%" stop-color="#312666">
+          <animate attributeName="stop-color" values="#312666; #000000; #312666" dur="4s" repeatCount="indefinite" />
+        </stop>
+
+        <stop offset="100%" stop-color="#000000">
+          <animate attributeName="stop-color" values="#000000; #312666; #000000" dur="4s" repeatCount="indefinite" />
+        </stop>
+        <animateTransform
+          attributeName="gradientTransform"
+          type="rotate"
+          values="360 .5 .5;0 .5 .5"
+          dur="10s"
           repeatCount="indefinite"
         />
-      </stop>
-      <stop offset="1" stop-color="purple">
-        <animate
-          attributeName="stop-color"
-          values="purple;blue;green;black;red;purple;"
-          dur="4s"
-          repeatCount="indefinite"
-        />
-      </stop>
-      <animateTransform
-        attributeName="gradientTransform"
-        type="rotate"
-        values="360 .5 .5;0 .5 .5"
-        dur="10s"
-        repeatCount="indefinite"
-      />
-    </linearGradient>
-  </defs>
+      </linearGradient>
+    </defs>
+  {/if}
   <path
     d="M176.74,151.7c-4.5-6.64-8.65-12.69-12.74-18.8-10.8-16.11-25.55-26.72-43.73-33.47-10-3.7-19.3-9.2-28.54-14.55C64.55,69.16,37.57,53.1,10.49,37.19,4.12,33.45.32,28.11,0,20.61-.22,15.08,3.58,12.07,9,13.5c11.43,3,22.76,6.52,34.27,9.17,26.23,6,51.67,3.08,76.51-7.14,11.72-4.82,23.54-9.78,35.77-12.85C176.84-2.66,197.79.28,218,8.85c13.52,5.72,26.9,11.83,41.49,14.62,21.81,4.17,43.15,2.35,64.25-4.16,6.9-2.13,13.89-4,20.86-5.83,5.19-1.39,9,1.57,8.86,6.85-.22,7.5-3.87,13-10.25,16.73l-68,40c-6.65,3.92-13.17,8.12-20,11.67C247,93,238.61,97.2,230,100.64c-16.61,6.62-30.11,16.91-40.14,31.73Z"
   /><path
@@ -49,7 +43,6 @@
   .icon {
     height: auto;
     width: var(--size);
-    fill: url(#animatedGradient);
   }
 
   .size-1 {
@@ -58,5 +51,9 @@
 
   .size-2 {
     --size: 200px;
+  }
+
+  .animation {
+    fill: url(#animatedGradient);
   }
 </style>
