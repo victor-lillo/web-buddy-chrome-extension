@@ -3,10 +3,12 @@
   import AddDefaults from './icons/AddDefaults.svelte'
   import Delete from './icons/Delete.svelte'
   import { setStorage } from '../utils/storage'
+  import { hideLetters } from '../utils/hideLetters'
   import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
 
   export let blockedUrls: Array<string>
   let isSelectAll = false
+  let isShow = false
   let selectedUrls = []
 
   const handleSelectAllChange = (e) => {
@@ -52,13 +54,14 @@
     <fieldset>
       <div class="fieldset-row fieldset-row--header">
         <label for="select-all"> Select all </label>
+        <input id="select-all" type="checkbox" bind:checked={isShow} />
         <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
       <div class="fieldset-content">
         {#each blockedUrls as url}
           <div class="fieldset-row">
             <label for={url}>
-              {url}
+              {isShow ? url : hideLetters(url)}
             </label>
             <input
               bind:group={selectedUrls}
