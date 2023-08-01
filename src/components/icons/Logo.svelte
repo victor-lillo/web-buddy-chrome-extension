@@ -7,12 +7,12 @@
   {#if animation}
     <defs>
       <linearGradient id="animatedGradient" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="1">
-        <stop offset="0%" stop-color="#312666">
-          <animate attributeName="stop-color" values="#312666; #000000; #312666" dur="4s" repeatCount="indefinite" />
+        <stop offset="0%" stop-color="#5a0d70">
+          <animate attributeName="stop-color" values="#5a0d70; #000000; #5a0d70" dur="4s" repeatCount="indefinite" />
         </stop>
 
         <stop offset="100%" stop-color="#000000">
-          <animate attributeName="stop-color" values="#000000; #312666; #000000" dur="4s" repeatCount="indefinite" />
+          <animate attributeName="stop-color" values="#000000; #5a0d70; #000000" dur="4s" repeatCount="indefinite" />
         </stop>
         <animateTransform
           attributeName="gradientTransform"
