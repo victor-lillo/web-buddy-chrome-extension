@@ -53,7 +53,6 @@
   }
 
   textarea:focus {
-    border-color: var(--color-dark-11);
-    /* TODO accent color */
+    border-color: var(--color-accent-grey);
   }
 </style>

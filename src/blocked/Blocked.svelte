@@ -43,7 +43,7 @@
   }
 
   code {
-    background-color: var(--color-dark-13);
+    background-color: var(--color-accent-grey);
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
