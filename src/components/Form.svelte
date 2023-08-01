@@ -5,7 +5,7 @@
 
   let value: string = ''
   function splitWordsByDelimitter(str: string) {
-    const palabrasArray = str.split(/[,.\n]/).map((palabra) => palabra.trim())
+    const palabrasArray = str.split(/[,\s\n]/).map((palabra) => palabra.trim())
     return palabrasArray.filter((el) => el)
   }
 
