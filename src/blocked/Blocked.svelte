@@ -12,7 +12,7 @@
   </div>
   <h1>Don't give up, you're doing great!</h1>
 
-  <p>{extension.name()} has prevented the following page from loading:</p>
+  <p>{extension.name} has prevented the following page from loading:</p>
   <code>
     {originUrl}
   </code>
