@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Logo from '../components/icons/Logo.svelte'
   import { extension } from '../utils/extensionData'
 
   export let relativeTime: string
@@ -6,6 +7,9 @@
 </script>
 
 <section>
+  <div>
+    <Logo />
+  </div>
   <h1>Don't give up, you're doing great!</h1>
 
   <p>{extension.name()} has prevented the following page from loading:</p>
@@ -23,6 +27,10 @@
     flex-direction: column;
     gap: 1rem;
     min-width: 80ch;
+  }
+
+  div {
+    align-self: center;
   }
 
   h1 {
