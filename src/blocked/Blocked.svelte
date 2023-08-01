@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { extension } from '../utils/extensionData'
+
   export let relativeTime: string
   export let originUrl: string
 </script>
@@ -6,7 +8,7 @@
 <section>
   <h1>Don't give up, you're doing great!</h1>
 
-  <p>Web Buddy has prevented the following page from loading:</p>
+  <p>{extension.name()} has prevented the following page from loading:</p>
   <code>
     {originUrl}
   </code>
