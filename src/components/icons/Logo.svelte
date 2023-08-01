@@ -55,6 +55,7 @@
   .size-1 {
     --size: 80px;
   }
+
   .size-2 {
     --size: 200px;
   }
