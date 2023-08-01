@@ -3,4 +3,4 @@ export const STORAGE_KEYS = {
   blockedUrls: 'blockedUrls',
 }
 
-export const DEFAULT_BLOCKED_URLS = ['zzz', 'example', 'example1', 'examples']
+export const DEFAULT_BLOCKED_URLS = ['marca.com', 'example.com', 'example1.com', 'examples.com']
