@@ -60,6 +60,7 @@
     border: 1px solid transparent;
     outline: none;
     overflow: hidden;
+    padding: 0.5rem;
   }
 
   textarea:focus {
