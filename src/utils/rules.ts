@@ -1,15 +1,13 @@
 import { URL_PARAM_ORIGIN } from './../DEFAULTS'
-const REDIRECT = chrome.declarativeNetRequest.RuleActionType.REDIRECT
 const MAIN_FRAME = chrome.declarativeNetRequest.ResourceType.MAIN_FRAME
 const SUB_FRAME = chrome.declarativeNetRequest.ResourceType.SUB_FRAME
+const REDIRECT = chrome.declarativeNetRequest.RuleActionType.REDIRECT
 const XMLHTTPREQUEST = chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST
-
 const REDIRECT_BLOCKED_PAGE = chrome.runtime.getURL('/src/blocked/blocked.html')
 
 export async function setBlockRules(domains: Array<string>) {
   // Remove previous rules
   await resetBlockRules()
-
   // Add new rules
   await addBlockRules(domains)
 }
