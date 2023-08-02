@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    min-width: 60ch;
+    min-width: var(--width-popup);
   }
 
   .logo-container {

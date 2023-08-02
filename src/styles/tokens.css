@@ -20,6 +20,9 @@
     rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 
   --font-weight-bold: 600;
+
+  --width-popup: 60ch;
+  --width-full-page: 80ch;
 }
 /* Backup colors
     #262626  #333333 
