@@ -5,24 +5,24 @@
   import ToggleEye from './ToggleEye.svelte'
   import { setStorage } from '../utils/storage'
   import { hideCharacters } from '../utils/hideLetters'
-  import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
+  import { DEFAULT_BLOCKED_URLS, STORAGE_KEYS } from '../DEFAULTS'
 
-  export let blockedUrls: Array<string>
+  export let blockedDomains: Array<string>
   let isSelectAll = false
   let isShow = false
-  let selectedUrls = []
+  let selectedDomains = []
 
   const handleSelectAllChange = (e) => {
     const isChecked = e.target.checked
     if (isChecked) {
-      selectedUrls = blockedUrls
+      selectedDomains = blockedDomains
     } else {
-      selectedUrls = []
+      selectedDomains = []
     }
   }
 
   const handleSelectChange = () => {
-    if (blockedUrls.length === selectedUrls.length) {
+    if (blockedDomains.length === selectedDomains.length) {
       isSelectAll = true
     } else if (isSelectAll) {
       isSelectAll = false
@@ -30,46 +30,46 @@
   }
 
   const handleRemove = async () => {
-    console.log('Remove rules:', selectedUrls)
-    const newUrls = blockedUrls.filter((el) => !selectedUrls.includes(el)).sort()
-    blockedUrls = newUrls
-    selectedUrls = []
+    console.log('Remove rules:', selectedDomains)
+    const updatedDomains = blockedDomains.filter((el) => !selectedDomains.includes(el)).sort()
+    blockedDomains = updatedDomains
+    selectedDomains = []
     isSelectAll = false
-    await setStorage({ blockedUrls: newUrls })
+    await setStorage({ [STORAGE_KEYS.blockedDomains]: updatedDomains })
   }
 
   const handleAddDefaults = async () => {
     console.log('Add defaults')
-    const newUrls = [...new Set([...blockedUrls, ...DEFAULT_BLOCKED_URLS])].sort()
-    blockedUrls = newUrls
-    await setStorage({ blockedUrls: newUrls })
+    const updatedDomains = [...new Set([...blockedDomains, ...DEFAULT_BLOCKED_URLS])].sort()
+    blockedDomains = updatedDomains
+    await setStorage({ [STORAGE_KEYS.blockedDomains]: updatedDomains })
   }
 </script>
 
 <section>
-  <h1>Delete blocked URLs</h1>
-  {#if blockedUrls.length === 0}
+  <h1>Delete blocked domains</h1>
+  {#if blockedDomains.length === 0}
     <span>No URls saved.</span>
   {/if}
-  {#if blockedUrls.length > 0}
+  {#if blockedDomains.length > 0}
     <fieldset>
       <div class="fieldset-row fieldset-row--header">
         <label for="select-all"> Select all </label>
         <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
       <div class="fieldset-content">
-        {#each blockedUrls as url}
+        {#each blockedDomains as domain}
           <div class="fieldset-row">
-            <label for={url}>
-              {isShow ? url : hideCharacters(url)}
+            <label for={domain}>
+              {isShow ? domain : hideCharacters(domain)}
             </label>
             <input
-              bind:group={selectedUrls}
-              id={url}
-              name="urls"
+              bind:group={selectedDomains}
+              id={domain}
+              name="domain"
               on:change={handleSelectChange}
               type="checkbox"
-              value={url}
+              value={domain}
             />
           </div>
         {/each}
@@ -77,12 +77,12 @@
     </fieldset>
   {/if}
   <div class="button-container">
-    {#if blockedUrls.length > 0}
+    {#if blockedDomains.length > 0}
       <ToggleEye bind:isShow />
       <Button
         text={'Delete selected'}
         handleClick={handleRemove}
-        disabled={selectedUrls.length === 0}
+        disabled={selectedDomains.length === 0}
         variant={'primary'}
       >
         <Delete />

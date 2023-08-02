@@ -6,9 +6,9 @@ import { getStorage } from '../utils/storage'
 const target = document.getElementById('full-page-app')
 
 async function render() {
-  const blockedUrls = await getStorage(STORAGE_KEYS.blockedUrls)
+  const blockedDomains = await getStorage(STORAGE_KEYS.blockedDomains)
 
-  new Options({ target, props: { blockedUrls } })
+  new Options({ target, props: { blockedDomains } })
 }
 
 document.addEventListener('DOMContentLoaded', render)

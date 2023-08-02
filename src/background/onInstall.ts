@@ -3,9 +3,9 @@ import { getStorage, setStorage } from '../utils/storage'
 import { setBlockRules } from '../utils/rules'
 
 async function setInitialRules() {
-  const initialBlockedUrls = (await getStorage(STORAGE_KEYS.blockedUrls)) ?? DEFAULT_BLOCKED_URLS
+  const initialBlockedUrls = (await getStorage(STORAGE_KEYS.blockedDomains)) ?? DEFAULT_BLOCKED_URLS
   setBlockRules(initialBlockedUrls)
-  await setStorage({ [STORAGE_KEYS.blockedUrls]: initialBlockedUrls })
+  await setStorage({ [STORAGE_KEYS.blockedDomains]: initialBlockedUrls })
 }
 
 async function saveInitialDate() {

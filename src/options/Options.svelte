@@ -2,12 +2,12 @@
   import HandleUrls from '../components/HandleUrls.svelte'
   import Form from '../components/Form.svelte'
 
-  export let blockedUrls: Array<string>
+  export let blockedDomains: Array<string>
 </script>
 
 <section>
-  <Form bind:blockedUrls />
-  <HandleUrls bind:blockedUrls />
+  <Form bind:blockedDomains />
+  <HandleUrls bind:blockedDomains />
 </section>
 
 <style>

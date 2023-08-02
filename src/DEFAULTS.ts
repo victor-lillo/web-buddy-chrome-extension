@@ -1,7 +1,7 @@
 import { NSFW_SITES } from '../sites/nsfw'
 export const STORAGE_KEYS = {
   installDate: 'installDate',
-  blockedUrls: 'blockedUrls',
+  blockedDomains: 'blockedDomains',
 }
 
 export const TEXTAREA_PLACEHOLDER = `Insert here the domains (with extension) you want to block.

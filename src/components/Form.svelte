@@ -4,25 +4,25 @@
   import { processDomainsTextarea } from '../utils/processDomainsForm'
   import Button from './Button.svelte'
 
-  export let blockedUrls: Array<string> = []
+  export let blockedDomains: Array<string> = []
   let placeholder: string = TEXTAREA_PLACEHOLDER
   let value: string = ''
 
   async function handleAdd() {
     console.log('Add rules!')
-    const { updatedDomains, feedback } = processDomainsTextarea({ text: value, previousDomains: blockedUrls })
+    const { updatedDomains, feedback } = processDomainsTextarea({ text: value, previousDomains: blockedDomains })
     placeholder = feedback
-    blockedUrls = updatedDomains
+    blockedDomains = updatedDomains
     value = ''
 
-    await setStorage({ blockedUrls: updatedDomains })
+    await setStorage({ blockedDomains: updatedDomains })
   }
 </script>
 
 <form on:submit|preventDefault={handleAdd}>
-  <label for="story">Add URLs to block</label>
+  <label for="story">Add domains to block</label>
   <textarea id="story" name="story" {placeholder} bind:value />
-  <Button text={'Save URLs'} disabled={value.length === 0} variant={'primary'} type="submit" />
+  <Button text={'Save domains'} disabled={value.length === 0} variant={'primary'} type="submit" />
 </form>
 
 <style>
