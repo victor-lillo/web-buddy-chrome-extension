@@ -9,7 +9,7 @@ export const STORAGE_KEYS = {
 }
 export const TEXTAREA_PLACEHOLDER = `Insert here the domains (with extension) you want to block.
 Separate them by comma, space or line break.
-✅ url1.com, domain2.io
+  ✅ url1.com, domain2.io
   ❌ url1, domain2.io/page
 `
 export const URL_PARAM_ORIGIN = 'origin'
