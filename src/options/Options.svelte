@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ButtonInstructions from '../components/ButtonInstructions.svelte'
   import Form from '../components/Form.svelte'
   import HandleUrls from '../components/HandleUrls.svelte'
 
@@ -6,7 +7,9 @@
 </script>
 
 <section>
-  <Form bind:blockedDomains />
+  <Form bind:blockedDomains>
+    <ButtonInstructions slot="instructions" />
+  </Form>
   <HandleUrls bind:blockedDomains />
 </section>
 
