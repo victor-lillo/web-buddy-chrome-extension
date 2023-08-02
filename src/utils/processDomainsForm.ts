@@ -3,16 +3,16 @@ function splitWordsByDelimiter(str: string) {
   return wordsArray.filter((el) => el)
 }
 
-function createFeedbackMessage(addedDomains: Array<string>) {
-  const domainsLength = addedDomains.length
-  return domainsLength > 0
-    ? `✅ Successfuly added ${domainsLength} domain(s)`
+function createFeedbackMessage(numberOfNewDomains: number) {
+  return numberOfNewDomains > 0
+    ? `✅ Successfuly added ${numberOfNewDomains} domain(s)`
     : `😔 No domains were added.
   `
 }
 export function processDomainsTextarea({ text, previousDomains }: { text: string; previousDomains: Array<string> }) {
   const userDomains = splitWordsByDelimiter(text)
   const updatedDomains = [...new Set([...previousDomains, ...userDomains])].sort()
-  const feedback = createFeedbackMessage(updatedDomains)
+  const numberOfNewDomains = updatedDomains.length - previousDomains.length
+  const feedback = createFeedbackMessage(numberOfNewDomains)
   return { feedback, updatedDomains }
 }
