@@ -2,7 +2,7 @@
   import Button from './Button.svelte'
   import Close from './icons/Close.svelte'
   import Dialog from './Dialog.svelte'
-  import Help from './icons/Info.svelte'
+  import Help from './icons/Help.svelte'
 
   let dialog
 </script>
@@ -36,14 +36,6 @@
   h1 {
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
-  }
-  button {
-    background: transparent;
-    /* border: none; */
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--border-radius);
-    width: fit-content;
   }
   code {
     display: inline-flex;
