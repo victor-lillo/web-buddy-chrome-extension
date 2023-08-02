@@ -1,27 +1,27 @@
 <script lang="ts">
+  import { TEXTAREA_PLACEHOLDER } from '../DEFAULTS'
   import { setStorage } from '../utils/storage'
+  import { processDomainsTextarea } from '../utils/processDomainsForm'
   import Button from './Button.svelte'
-  export let blockedUrls: Array<string> = []
 
+  export let blockedUrls: Array<string> = []
+  let placeholder: string = TEXTAREA_PLACEHOLDER
   let value: string = ''
-  function splitWordsByDelimiter(str: string) {
-    const palabrasArray = str.split(/[,\s\n]/).map((palabra) => palabra.trim())
-    return palabrasArray.filter((el) => el)
-  }
 
   async function handleAdd() {
     console.log('Add rules!')
-    const userUrls = splitWordsByDelimiter(value)
-    const newUrls = [...new Set([...blockedUrls, ...userUrls])].sort()
-    blockedUrls = newUrls
+    const { updatedDomains, feedback } = processDomainsTextarea({ text: value, previousDomains: blockedUrls })
+    placeholder = feedback
+    blockedUrls = updatedDomains
     value = ''
-    await setStorage({ blockedUrls: newUrls })
+
+    await setStorage({ blockedUrls: updatedDomains })
   }
 </script>
 
 <form on:submit|preventDefault={handleAdd}>
   <label for="story">Add URLs to block</label>
-  <textarea id="story" name="story" bind:value />
+  <textarea id="story" name="story" {placeholder} bind:value />
   <Button text={'Save URLs'} disabled={value.length === 0} variant={'primary'} type="submit" />
 </form>
 
