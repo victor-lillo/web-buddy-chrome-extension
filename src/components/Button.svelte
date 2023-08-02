@@ -1,14 +1,15 @@
 <script lang="ts">
   type Variants = 'dev-red' | 'dev-green' | 'primary' | 'secondary' | 'alert'
-  export let text: string
-  export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement> = undefined
-  export let variant: Variants | undefined = undefined
+  export let ariaLabel: string = undefined
   export let disabled = false
+  export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement> = undefined
+  export let text: string
   export let type: 'button' | 'submit' | 'reset' = undefined
+  export let variant: Variants | undefined = undefined
   export let width: 'fit-content' | 'full' = 'fit-content'
 </script>
 
-<button on:click={handleClick} class={variant} class:full={width === 'full'} {disabled} {type}>
+<button aria-label={ariaLabel} on:click={handleClick} class={variant} class:full={width === 'full'} {disabled} {type}>
   {text}
   <slot />
 </button>
