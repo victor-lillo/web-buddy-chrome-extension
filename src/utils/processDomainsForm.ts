@@ -1,6 +1,9 @@
+// Validates domains with subdomains, without protocol
+const DOMAIN_REGEX = /^([a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/
+
 function splitWordsByDelimiter(str: string) {
   const wordsArray = str.split(/[,\s\n]/).map((palabra) => palabra.trim())
-  return wordsArray.filter((el) => el)
+  return wordsArray.filter((el) => DOMAIN_REGEX.test(el))
 }
 
 function createFeedbackMessage(numberOfNewDomains: number) {
