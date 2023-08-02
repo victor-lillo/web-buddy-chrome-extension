@@ -1,6 +1,6 @@
 <script lang="ts">
-  import HandleUrls from '../components/HandleUrls.svelte'
   import Form from '../components/Form.svelte'
+  import HandleUrls from '../components/HandleUrls.svelte'
 
   export let blockedDomains: Array<string>
 </script>

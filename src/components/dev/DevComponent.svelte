@@ -1,7 +1,7 @@
 <script lang="ts">
-  import GetWholeStorage from './GetWholeStorage.svelte'
   import ClearStorage from './ClearStorage.svelte'
   import GetDynamicRules from './GetDynamicRules.svelte'
+  import GetWholeStorage from './GetWholeStorage.svelte'
   import ResetDynamicRules from './ResetDynamicRules.svelte'
 </script>
 

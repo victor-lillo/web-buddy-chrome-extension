@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { getRules } from '../../utils/rules'
   import Button from '../Button.svelte'
+  import { getRules } from '../../utils/rules'
 
   const text = 'Log Rules'
 

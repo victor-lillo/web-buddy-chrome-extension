@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let size: 1 | 2 = 1
   export let animation: Boolean = false
+  export let size: 1 | 2 = 1
 </script>
 
 <svg class={`icon size-${size}`} class:animation xmlns="http://www.w3.org/2000/svg" viewBox="0 0 353.48 242.2">

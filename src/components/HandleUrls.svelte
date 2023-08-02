@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Button from './Button.svelte'
   import AddDefaults from './icons/AddDefaults.svelte'
+  import Button from './Button.svelte'
   import Delete from './icons/Delete.svelte'
   import ToggleEye from './ToggleEye.svelte'
-  import { setStorage } from '../utils/storage'
-  import { hideCharacters } from '../utils/hideLetters'
   import { DEFAULT_BLOCKED_URLS, STORAGE_KEYS } from '../DEFAULTS'
+  import { hideCharacters } from '../utils/hideLetters'
+  import { setStorage } from '../utils/storage'
 
   export let blockedDomains: Array<string>
   let isSelectAll = false

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { TEXTAREA_PLACEHOLDER } from '../DEFAULTS'
-  import { setStorage } from '../utils/storage'
-  import { processDomainsTextarea } from '../utils/processDomainsForm'
   import Button from './Button.svelte'
+  import { processDomainsTextarea } from '../utils/processDomainsForm'
+  import { setStorage } from '../utils/storage'
+  import { TEXTAREA_PLACEHOLDER } from '../DEFAULTS'
 
   export let blockedDomains: Array<string> = []
   let placeholder: string = TEXTAREA_PLACEHOLDER
