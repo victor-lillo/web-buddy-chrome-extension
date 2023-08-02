@@ -20,8 +20,8 @@
 </script>
 
 <form on:submit|preventDefault={handleAdd}>
-  <label for="story">Add domains to block</label>
-  <textarea id="story" name="story" {placeholder} bind:value />
+  <label for="rawDomains">Add domains to block</label>
+  <textarea id="rawDomains" name="rawDomains" {placeholder} bind:value />
   <div class="button-container">
     <slot name="instructions" />
     <Button text={'Save domains'} disabled={value.length === 0} variant={'primary'} type="submit" />
