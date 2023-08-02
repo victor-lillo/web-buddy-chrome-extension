@@ -11,28 +11,43 @@
   <Help />
 </Button>
 
-<Dialog bind:dialog>
-  <h1>Instructions</h1>
-  <p>
-    Domains will be extracted from the text splitting it with <code>commas</code>, <code>spaces</code> or
-    <code>break lines</code> as delimiters.
-  </p>
-  <p>Then, each element will be validated as domain.</p>
-  <code class="code-block">
-    <p>✅ domain1.com, subdomain.domain2.net domain3.io</p>
-    <p>❌ https://domain1.com</p>
-    <p>❌ domain2.com/page</p>
-    <p>❌ domain3</p>
-  </code>
+<Dialog bind:dialog onClick={() => dialog.close()}>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <section on:click|stopPropagation>
+    <h1>Instructions</h1>
+    <p>
+      Domains will be extracted from the text splitting it with <code>commas</code>, <code>spaces</code> or
+      <code>break lines</code> as delimiters.
+    </p>
+    <p>Then, each element will be validated as domain.</p>
+    <code class="code-block">
+      <p>✅ domain1.com, subdomain.domain2.net domain3.io</p>
+      <p>❌ https://domain1.com</p>
+      <p>❌ domain2.com/page</p>
+      <p>❌ domain3</p>
+    </code>
 
-  <div>
-    <Button ariaLabel="Close dialog" type="button" text="Close" handleClick={() => dialog.close()} variant="secondary">
-      <Close />
-    </Button>
-  </div>
+    <div>
+      <Button
+        ariaLabel="Close dialog"
+        type="button"
+        text="Close"
+        handleClick={() => dialog.close()}
+        variant="secondary"
+      >
+        <Close />
+      </Button>
+    </div>
+  </section>
 </Dialog>
 
 <style>
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
   h1 {
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);

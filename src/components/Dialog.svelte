@@ -1,18 +1,21 @@
 <script>
   export let dialog
+  export let onClick
 </script>
 
-<dialog bind:this={dialog}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<dialog on:click|stopPropagation={onClick} bind:this={dialog}>
   <slot />
 </dialog>
 
 <style>
-  dialog[open] {
+  dialog {
+    padding: 0;
     border: none;
+  }
+
+  dialog[open] {
     border-radius: var(--border-radius);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
   }
   dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.4);
