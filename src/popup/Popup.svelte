@@ -49,6 +49,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    min-width: 60ch;
   }
 
   .logo-container {
@@ -58,6 +59,6 @@
   .button-container {
     display: flex;
     gap: 1rem;
-    /* border: 1px solid black; */
+    justify-content: center;
   }
 </style>
