@@ -53,14 +53,8 @@
   {#if blockedUrls.length > 0}
     <fieldset>
       <div class="fieldset-row fieldset-row--header">
-        <label for="Show all">
-          Show all
-          <input id="Show all" type="checkbox" bind:checked={isShow} />
-        </label>
-        <label for="select-all">
-          Select all
-          <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
-        </label>
+        <label for="select-all"> Select all </label>
+        <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
       <div class="fieldset-content">
         {#each blockedUrls as url}
@@ -83,6 +77,10 @@
   {/if}
   <div class="button-container">
     {#if blockedUrls.length > 0}
+      <label for="Show all">
+        Show all
+        <input id="Show all" type="checkbox" bind:checked={isShow} />
+      </label>
       <Button
         text={'Delete selected'}
         handleClick={handleRemove}
@@ -161,7 +159,7 @@
     padding-left: calc(var(--padding-scrollbar-left) + var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
-  .fieldset-row--header label:hover {
+  .fieldset-row--header:has(label:hover) {
     background-color: #f1e2f8;
   }
 
