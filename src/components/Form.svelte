@@ -22,7 +22,10 @@
 <form on:submit|preventDefault={handleAdd}>
   <label for="story">Add domains to block</label>
   <textarea id="story" name="story" {placeholder} bind:value />
-  <Button text={'Save domains'} disabled={value.length === 0} variant={'primary'} type="submit" />
+  <div class="button-container">
+    <slot name="instructions" />
+    <Button text={'Save domains'} disabled={value.length === 0} variant={'primary'} type="submit" />
+  </div>
 </form>
 
 <style>
@@ -38,6 +41,13 @@
     align-self: flex-start;
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
+  }
+  .button-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
   }
 
   textarea {
