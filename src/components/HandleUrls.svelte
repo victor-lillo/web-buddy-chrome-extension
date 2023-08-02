@@ -2,6 +2,7 @@
   import Button from './Button.svelte'
   import AddDefaults from './icons/AddDefaults.svelte'
   import Delete from './icons/Delete.svelte'
+  import ToggleEye from './ToggleEye.svelte'
   import { setStorage } from '../utils/storage'
   import { hideCharacters } from '../utils/hideLetters'
   import { DEFAULT_BLOCKED_URLS } from '../DEFAULTS'
@@ -77,10 +78,7 @@
   {/if}
   <div class="button-container">
     {#if blockedUrls.length > 0}
-      <label for="Show all">
-        Show all
-        <input id="Show all" type="checkbox" bind:checked={isShow} />
-      </label>
+      <ToggleEye bind:isShow />
       <Button
         text={'Delete selected'}
         handleClick={handleRemove}
