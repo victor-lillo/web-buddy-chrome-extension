@@ -1,5 +1,5 @@
+import { DOMAIN_REGEX } from './../DEFAULTS'
 // Validates domains with subdomains, without protocol
-const DOMAIN_REGEX = /^([a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$/
 
 function splitWordsByDelimiter(str: string) {
   const wordsArray = str.split(/[,\s\n]/).map((palabra) => palabra.trim())
