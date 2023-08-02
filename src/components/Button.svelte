@@ -4,7 +4,7 @@
   export let handleClick: svelte.JSX.MouseEventHandler<HTMLButtonElement> = undefined
   export let variant: Variants | undefined = undefined
   export let disabled = false
-  export let type: 'submit' | 'reset' = undefined
+  export let type: 'button' | 'submit' | 'reset' = undefined
   export let width: 'fit-content' | 'full' = 'fit-content'
 </script>
 
