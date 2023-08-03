@@ -24,7 +24,7 @@
   <textarea id="rawDomains" name="rawDomains" {placeholder} bind:value />
   <div class="button-container">
     <slot name="instructions" />
-    <Button text={'Save domains'} disabled={value.length === 0} variant={'primary'} type="submit" />
+    <Button text={'Save domains'} variant={'primary'} type="submit" />
   </div>
 </form>
 
