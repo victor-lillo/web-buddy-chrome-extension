@@ -53,7 +53,7 @@
   {/if}
   {#if blockedDomains.length > 0}
     <fieldset>
-      <div class="fieldset-row fieldset-row--header">
+      <div class="fieldset-header-row">
         <label for="select-all"> Select all </label>
         <input id="select-all" type="checkbox" bind:checked={isSelectAll} on:change={handleSelectAllChange} />
       </div>
@@ -124,21 +124,27 @@
     padding: 0;
   }
 
+  .fieldset-header-row,
   .fieldset-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .fieldset-row {
+    padding: 0.2rem 0;
+    border-bottom: 1px solid var(--color-light-4);
     padding-right: var(--padding-scrollbar-left);
   }
 
-  .fieldset-row--header {
+  .fieldset-header-row {
     background-color: #f4eafa;
     color: var(--color-dark-2);
     overflow-y: auto;
     scrollbar-gutter: stable;
     padding-right: calc(var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
-  .fieldset-row--header label {
+  .fieldset-header-row label {
     padding: 0.5rem 0;
     flex: 1;
     display: flex;
@@ -157,11 +163,11 @@
     padding-left: calc(var(--padding-scrollbar-left) + var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
 
-  .fieldset-row--header:has(label:hover) {
+  .fieldset-header-row:has(label:hover) {
     background-color: #f1e2f8;
   }
 
-  .fieldset-row:has(label:hover):not(.fieldset-row--header) {
+  .fieldset-row:has(label:hover):not(.fieldset-header-row) {
     background-color: #f8f1fc;
   }
 
