@@ -34,12 +34,12 @@
   }
 
   button:is(:hover):not(:disabled) {
-    filter: brightness(0.9);
+    filter: brightness(1.2);
     box-shadow: var(--box-shadow-hover);
   }
 
   button:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   .full {
