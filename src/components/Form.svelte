@@ -42,6 +42,7 @@
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
   }
+
   .button-container {
     display: flex;
     width: 100%;

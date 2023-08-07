@@ -135,6 +135,7 @@
     padding: 0.2rem 0;
     padding-right: var(--padding-scrollbar-left);
   }
+
   .fieldset-row:not(:last-child) {
     border-bottom: 1px solid var(--color-light-4);
   }
@@ -146,6 +147,7 @@
     scrollbar-gutter: stable;
     padding-right: calc(var(--width-scrollbar) + var(--padding-scrollbar-right));
   }
+
   .fieldset-header-row label {
     padding: 0.5rem 0;
     flex: 1;

@@ -48,10 +48,12 @@
     gap: 0.5rem;
     padding: 1rem;
   }
+
   h1 {
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
   }
+
   code {
     display: inline-flex;
     white-space: nowrap;
