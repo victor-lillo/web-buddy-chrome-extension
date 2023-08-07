@@ -133,8 +133,10 @@
 
   .fieldset-row {
     padding: 0.2rem 0;
-    border-bottom: 1px solid var(--color-light-4);
     padding-right: var(--padding-scrollbar-left);
+  }
+  .fieldset-row:not(:last-child) {
+    border-bottom: 1px solid var(--color-light-4);
   }
 
   .fieldset-header-row {
