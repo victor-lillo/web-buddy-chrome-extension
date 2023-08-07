@@ -9,7 +9,6 @@
   let value: string = ''
 
   async function handleAdd() {
-    console.log('Add rules!')
     const { updatedDomains, feedback } = processDomainsTextarea({ text: value, previousDomains: blockedDomains })
     placeholder = feedback
     blockedDomains = updatedDomains

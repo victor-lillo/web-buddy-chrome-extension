@@ -30,7 +30,6 @@
   }
 
   const handleRemove = async () => {
-    console.log('Remove rules:', selectedDomains)
     const updatedDomains = blockedDomains.filter((el) => !selectedDomains.includes(el)).sort()
     blockedDomains = updatedDomains
     selectedDomains = []
@@ -39,7 +38,6 @@
   }
 
   const handleAddDefaults = async () => {
-    console.log('Add defaults')
     const updatedDomains = [...new Set([...blockedDomains, ...DEFAULT_BLOCKED_URLS])].sort()
     blockedDomains = updatedDomains
     await setStorage({ [STORAGE_KEYS.blockedDomains]: updatedDomains })
