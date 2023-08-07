@@ -1,5 +1,6 @@
 {
   "name": "web-buddy",
+  "description": "Chrome Extension for blocking unwanted websites instantly and stay focused while browsing. With anti-porn preset.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
