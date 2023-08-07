@@ -32,6 +32,7 @@ export async function addBlockRules(domains: Array<string>) {
           },
         },
       ],
+      removeRuleIds: [id],
     })
   })
 }
