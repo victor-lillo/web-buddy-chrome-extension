@@ -3,7 +3,7 @@ import '../styles/app.css'
 import Options from './Options.svelte'
 import { getStorage } from '../utils/storage'
 
-const target = document.getElementById('full-page-app')
+const target = document.getElementById('full-page-app')!
 
 async function render() {
   const blockedDomains = await getStorage(STORAGE_KEYS.blockedDomains)

@@ -4,7 +4,7 @@
   import { setStorage } from '../utils/storage'
   import { TEXTAREA_PLACEHOLDER } from '../DEFAULTS'
 
-  export let blockedDomains: Array<string> = []
+  export let blockedDomains: string[] = []
   let placeholder: string = TEXTAREA_PLACEHOLDER
   let value: string = ''
 

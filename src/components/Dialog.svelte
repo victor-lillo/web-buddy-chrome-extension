@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
+  import type { MouseEventHandler } from 'svelte/elements'
+
   export let dialog
-  export let onClick
+  export let onClick: MouseEventHandler<HTMLDialogElement>
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog on:click|stopPropagation={onClick} bind:this={dialog}>
   <slot />
 </dialog>

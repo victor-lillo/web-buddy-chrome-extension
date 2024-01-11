@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import Button from './Button.svelte'
   import Close from './icons/Close.svelte'
   import Dialog from './Dialog.svelte'
   import Help from './icons/Help.svelte'
 
-  let dialog
+  let dialog: HTMLDialogElement
 </script>
 
 <Button type={'button'} variant="secondary" handleClick={() => dialog.showModal()} text={'Instructions'}>
@@ -13,6 +13,7 @@
 
 <Dialog bind:dialog onClick={() => dialog.close()}>
   <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <section on:click|stopPropagation>
     <h1>Instructions</h1>
     <p>

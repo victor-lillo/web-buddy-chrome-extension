@@ -5,14 +5,14 @@ const REDIRECT = chrome.declarativeNetRequest.RuleActionType.REDIRECT
 const XMLHTTPREQUEST = chrome.declarativeNetRequest.ResourceType.XMLHTTPREQUEST
 const REDIRECT_BLOCKED_PAGE = chrome.runtime.getURL('/src/blocked/blocked.html')
 
-export async function setBlockRules(domains: Array<string>) {
+export async function setBlockRules(domains: string[]) {
   // Remove previous rules
   await resetBlockRules()
   // Add new rules
   await addBlockRules(domains)
 }
 
-export async function addBlockRules(domains: Array<string>) {
+export async function addBlockRules(domains: string[]) {
   domains.forEach((domain: string, index: number) => {
     const id = index + 1
 
@@ -37,7 +37,7 @@ export async function addBlockRules(domains: Array<string>) {
   })
 }
 
-async function deleteRulesById(ids: Array<number>) {
+async function deleteRulesById(ids: number[]) {
   chrome.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: ids,
   })
@@ -48,7 +48,7 @@ export async function resetBlockRules() {
   await deleteRulesById(totalIds)
 }
 
-export async function getRulesIds(): Promise<Array<number>> {
+export async function getRulesIds(): Promise<number[]> {
   const rules = await getRules()
   return rules.map(({ id }) => id)
 }

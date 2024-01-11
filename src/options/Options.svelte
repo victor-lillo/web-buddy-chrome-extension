@@ -3,7 +3,7 @@
   import Form from '../components/Form.svelte'
   import HandleUrls from '../components/HandleUrls.svelte'
 
-  export let blockedDomains: Array<string>
+  export let blockedDomains: string[]
 </script>
 
 <section>

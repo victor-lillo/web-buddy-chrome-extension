@@ -7,13 +7,14 @@
   import { hideCharacters } from '../utils/hideLetters'
   import { setStorage } from '../utils/storage'
 
-  export let blockedDomains: Array<string>
+  export let blockedDomains: string[]
   let isSelectAll = false
   let isShow = false
-  let selectedDomains = []
+  let selectedDomains: string[] | [] = []
 
-  const handleSelectAllChange = (e) => {
-    const isChecked = e.target.checked
+  const handleSelectAllChange = (e: Event) => {
+    const target = e.target as HTMLInputElement
+    const isChecked = target.checked
     if (isChecked) {
       selectedDomains = blockedDomains
     } else {
@@ -30,7 +31,7 @@
   }
 
   const handleRemove = async () => {
-    const updatedDomains = blockedDomains.filter((el) => !selectedDomains.includes(el)).sort()
+    const updatedDomains = blockedDomains.filter((el: string) => !(selectedDomains as string[]).includes(el)).sort()
     blockedDomains = updatedDomains
     selectedDomains = []
     isSelectAll = false
@@ -112,6 +113,7 @@
     --width-scrollbar: 0.5rem;
     --padding-scrollbar-right: 0.25rem;
     --padding-scrollbar-left: 0.5rem;
+
     display: flex;
     flex-direction: column;
     width: 100%;

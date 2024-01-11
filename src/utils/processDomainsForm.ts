@@ -9,7 +9,7 @@ function createFeedbackMessage(numberOfNewDomains: number) {
   return numberOfNewDomains > 0 ? `✅ Successfuly added ${numberOfNewDomains} domain(s)` : `😔 No domains were added`
 }
 
-export function processDomainsTextarea({ text, previousDomains }: { text: string; previousDomains: Array<string> }) {
+export function processDomainsTextarea({ text, previousDomains }: { text: string; previousDomains: string[] }) {
   const userDomains = splitWordsByDelimiter(text)
   const updatedDomains = [...new Set([...previousDomains, ...userDomains])].sort()
   const numberOfNewDomains = updatedDomains.length - previousDomains.length
