@@ -1,4 +1,4 @@
-export async function setStorage(value: { [key: string]: string | number | any[] }) {
+export async function setStorage(value: { [key: string]: string | number | unknown[] }) {
   await chrome.storage.sync.set(value)
 }
 
