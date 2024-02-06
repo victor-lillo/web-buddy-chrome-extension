@@ -9,7 +9,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "lint": "eslint --ext .ts ."
+    "oxlint": "npx --yes oxlint@latest",
+    "lint": "eslint --ext .js,.ts,.svelte .",
+    "lint:fix": "eslint --ext .js,.ts,.svelte . --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "2.0.0-beta.12",
