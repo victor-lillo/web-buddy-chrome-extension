@@ -13,6 +13,7 @@
 
 <button aria-label={ariaLabel} on:click={handleClick} class={variant} class:full={width === 'full'} {disabled} {type}>
   {text}
+  <!-- eslint-disable-next-line svelte/html-self-closing -->
   <slot />
 </button>
 

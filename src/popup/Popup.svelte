@@ -8,7 +8,7 @@
   import Time from '../components/Time.svelte'
 
   export let relativeTime: string
-  export let isAllowedIncognitoAccess: Boolean
+  export let isAllowedIncognitoAccess: boolean
 
   const handleOptionsPage = () => {
     chrome.runtime.openOptionsPage()

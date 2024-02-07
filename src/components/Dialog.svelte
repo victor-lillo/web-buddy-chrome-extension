@@ -8,6 +8,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <dialog on:click|stopPropagation={onClick} bind:this={dialog}>
+  <!-- eslint-disable-next-line svelte/html-self-closing -->
   <slot />
 </dialog>
 

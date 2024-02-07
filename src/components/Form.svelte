@@ -20,8 +20,9 @@
 
 <form on:submit|preventDefault={handleAdd}>
   <label for="rawDomains">Add domains to block</label>
-  <textarea id="rawDomains" name="rawDomains" {placeholder} bind:value />
+  <textarea id="rawDomains" name="rawDomains" {placeholder} bind:value></textarea>
   <div class="button-container">
+    <!-- eslint-disable-next-line svelte/html-self-closing -->
     <slot name="instructions" />
     <Button text={'Save domains'} variant={'primary'} type="submit" />
   </div>
