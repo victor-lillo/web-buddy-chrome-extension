@@ -18,7 +18,9 @@ const rtf = new Intl.RelativeTimeFormat('en', {
 
 const RELATIVE_FORMAT = {
   minute: (timestamp: number) => {
+    console.log({ timestamp })
     const difference = Math.round(timestamp / MIN_MILLISECONDS)
+    console.log({ difference })
     return rtf.format(difference, FORMATS.minute)
   },
   hour: (timestamp: number) => {
@@ -43,6 +45,7 @@ const getMsDifferenceFromToday = (timestamp: number) => {
 
 export function getRelativeTime(timestamp: number) {
   const difference = getMsDifferenceFromToday(timestamp)
+  console.log({ difference })
   const positiveDifference = Math.abs(difference)
 
   if (positiveDifference >= MONTH_MILLISECONDS) {
