@@ -8,6 +8,7 @@ const target = document.getElementById('app')!
 
 async function render() {
   const installDate = await getStorage(STORAGE_KEYS.installDate)
+  console.log({ installDate })
   const relativeTime = getRelativeTime(installDate)
   console.log({ relativeTime })
   const isAllowedIncognitoAccess = await chrome.extension.isAllowedIncognitoAccess()
