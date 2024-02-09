@@ -1,7 +1,7 @@
 {
   "name": "Web Buddy - Website Blocker",
   "description": "Block unwanted websites instantly and stay focused while browsing. With anti-porn preset.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "manifest_version": 3,
   "icons": {
     "16": "src/assets/logo-16.png",
@@ -19,7 +19,8 @@
     }
   },
   "background": {
-    "service_worker": "src/background/index.ts"
+    "service_worker": "src/background/index.ts",
+    "type": "module"
   },
   "options_ui": {
     "page": "src/options/options.html",
