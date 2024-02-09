@@ -3,9 +3,9 @@ import onStorageChanged from './onStorageChanged'
 
 console.log('background index.ts')
 
-chrome.runtime.onInstalled.addListener(async (details) => {
+chrome.runtime.onInstalled.addListener((details) => {
   console.log('runtime.onInstalled')
-  await onInstallCallback(details)
+  onInstallCallback(details)
 })
 
 onStorageChanged()
