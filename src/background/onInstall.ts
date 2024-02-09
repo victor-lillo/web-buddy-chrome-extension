@@ -15,15 +15,11 @@ async function saveInitialDate() {
   await setStorage({ [STORAGE_KEYS.installDate]: installDate })
 }
 
-async function onInstallCallback(details: chrome.runtime.InstalledDetails) {
+export async function onInstallCallback(details: chrome.runtime.InstalledDetails) {
+  console.log('onInstallCallback')
   if (details.reason === 'install') {
+    console.log('Reason: install')
     await saveInitialDate()
     await setInitialRules()
   }
-}
-
-export default function onInstall() {
-  chrome.runtime.onInstalled.addListener(async (details) => {
-    await onInstallCallback(details)
-  })
 }
