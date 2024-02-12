@@ -10,7 +10,9 @@ chrome.runtime.onInstalled.addListener((details) => {
 
 onStorageChanged()
 
-chrome.declarativeNetRequest.onRuleMatchedDebug.addListener((e) => {
-  const msg = `Navigation blocked to ${e.request.url} on tab ${e.request.tabId}.`
-  console.log(msg)
-})
+if (import.meta.env.DEV) {
+  chrome.declarativeNetRequest.onRuleMatchedDebug.addListener((e) => {
+    const msg = `Navigation blocked to ${e.request.url} on tab ${e.request.tabId}.`
+    console.log(msg)
+  })
+}
