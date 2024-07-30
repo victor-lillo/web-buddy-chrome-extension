@@ -1,10 +1,9 @@
-# Svelte + TS + Vite
+# Web Buddy - Website Blocker
 
-## Running the app
+**Web Buddy** is a Chrome extension for **blocking unwanted websites** instantly and staying focused while browsing.
 
-1. `npm install`
-2. Create dist files using `npm run build` or `npm run dev`.
-3. Open `chrome://extensions/`.
-4. Enable Developer Mode.
-5. Click `Load Unpacked`.
-6. Select the `dist` folder.
+You have the ability to personally **manage which domains** are added to or removed from the blacklist.
+
+On install, an **anti-porn preset** will be applied.
+
+You can install it directly from the [Chrome Web Store](https://chromewebstore.google.com/detail/web-buddy-website-blocker/haphmejjlcggoipbdmlonaicbhcgofpj).
